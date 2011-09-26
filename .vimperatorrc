@@ -1,0 +1,42 @@
+set titlestring=Firefox
+"set guioptions=mTb
+
+let g:ex_ime_mode = "inactive"  
+let g:textarea_ime_mode = "inactive"
+
+let g:hintsio="io"
+let g:hintchars="ASDFGWERTYZXCVBU"
+"" Hint Style
+highlight Hint z-index:5000; font-family:monospace; font-weight: bold; font-size:14px; color:white; background-color: #2828ef; border-color:ButtonShadow; border-width:0px; border-style:solid; padding:0px 1px 0px 1px; position:absolute;
+
+set nextpattern=^次(へ|の|ペ),^続き,\bnext\b,^>$,^(>>|&#187;)$,^(>|&#187;),(>|&#187;)$,\bmore\b
+set previouspattern=^前(へ|の|ペ),^戻る,\bprev|previous\b,^<$,^(<<|&#171;)$,^(<|&#171;),(<|&#171;)$
+
+map j 3<C-e>
+map k 3<C-y>
+map h gT
+map l gt
+map w <NOP>
+
+map H <A-Left>
+map L <A-Right>
+map <BS> <A-Left>
+"ロケーションバーにフォーカス
+map <C-l> <A-d>
+
+map \\p :stplay<CR>
+map \\m :stmute<CR>
+map \\c :stcomment
+
+" vimperatorのコマンドライン時はimeをOFFにする
+" http://vimperator.g.hatena.ne.jp/teramako/20090311/1236776437
+:style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
+
+" switch off animation when hit 't'
+" http://ameblo.jp/tkseeh/entry-10808896831.html
+js document.getElementById("liberator-commandline-prompt-text").hidden=true
+set noautocomplete
+no @ :source ~/.vimperatorrc<cr>
+
+" 読み込んだ事を出力
+"echo _vimperatorrc sourced

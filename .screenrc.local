@@ -1,0 +1,2 @@
+escape ^b^b
+# alternative: screen -e^t^t

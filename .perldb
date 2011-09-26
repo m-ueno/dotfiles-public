@@ -1,0 +1,15 @@
+package DB;
+sub afterinit{
+	require Data::Dumper;
+	require Perl6::Say;
+}
+
+# d: DumperでダンプData::Dumper / 非常に便利
+# source: id:walf443
+$DB::alias{'d'} = 's/^d(.*)/print Data::Dumper::Dumper $1/';
+
+# source: ラクダ本
+$alias{len}  = 's/^len(.*)/p length($1)/';
+$alias{stop} = 's/^stop (at|in)/b/'; #breakpointを設置できる
+
+1;

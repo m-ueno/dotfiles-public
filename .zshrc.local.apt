@@ -1,0 +1,6 @@
+alias apt-get='sudo apt-get'
+alias aa='apt-get update'
+alias yy='apt-get update'
+alias au='apt-get update'
+alias ai='apt-get install'
+alias as='apt-cache search'

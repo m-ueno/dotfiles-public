@@ -1,0 +1,9 @@
+[ui]
+username = uenop <uenop@arch.vm>
+verbose = True
+ssh = ssh -i ~/.ssh/id_rsa.sc.secret -C
+
+[color]
+# color: bundled extension
+# (win32 ansi auto off)
+mode=ansi
