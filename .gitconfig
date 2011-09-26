@@ -1,11 +1,11 @@
 [user]
-	name = uenop
-	email = dummy@mail.com
+    name = uenop
+    email = dummy@mail.com
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	ui = true
+    diff = auto
+    status = auto
+    branch = auto
+    ui = true
 [alias]
     st = status
     ci = commit
