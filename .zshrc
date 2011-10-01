@@ -52,6 +52,7 @@ alias yi='yaourt -S'
 alias yr='yaourt -R'
 alias ys='yaourt -Ss'
 alias yy='yaourt -Sy'
+alias yyy='sudo rm /var/lib/pacman/db.lck'
 echo_yaourt_aliases(){
     echo "yi: install (yaourt -S)\nys: update&search (yaourt -Ss)\nyy: update&install (yaourt -Sy)\nyc: clean (yaourt -Sc)\nycc: clean (yaourt -Scc)\nremove : yaourt -R"
 }

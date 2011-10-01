@@ -13,8 +13,6 @@ if version >= 700 " version 7.00 or upper
     Bundle 'unite.vim'
     Bundle 'unite-colorscheme'
 
-    let g:neocomplcache_enable_at_startup = 1
-
     """ Yanked from ':help neocomplcache'
     " Disable AutoComplPop.
     let g:acp_enableAtStartup = 0
@@ -109,6 +107,7 @@ set autoindent    " always set autoindenting on
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set copyindent    " copy the previous indentation on autoindenting
 set cursorline
+set expandtab
 set hidden
 set hlsearch      " highlight search terms
 set ignorecase    " ignore case when searching
@@ -116,12 +115,12 @@ set incsearch     " show search matches as you type
 set nowrap        " don't wrap lines
 set number        " always show line numbers
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
-set shiftwidth=2  " number of spaces to use for autoindenting
+set shiftwidth=4  " number of spaces to use for autoindenting
 set showmatch     " set show matching parenthesis
 set smartcase     " ignore case if search pattern is all lowercase, case-sensitive otherwise
 set smartindent
 set smarttab      " insert tabs on the start of a line according to shiftwidth, not tabstop
-set tabstop=2     " a tab is four spaces
+set tabstop=4     " a tab is four spaces
 set wrap
 
 set fileencodings=utf8,iso-2022-jp,sjis
@@ -137,17 +136,6 @@ set wildmode=longest,list,full
 " Use git!
 set nobackup
 set noswapfile
-
-" hatena-intern-2011
-set backspace=indent,eol,start  " more powerful backspacing
-" タブ幅の設定
-set expandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set shiftround
-set modelines=0
-" end-hatena
 
 " Look and Feel
 syntax on
