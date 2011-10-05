@@ -1,4 +1,5 @@
 set nocompatible
+
 if version >= 700 " version 7.00 or upper
     """ vundle
     filetype off
@@ -7,30 +8,35 @@ if version >= 700 " version 7.00 or upper
     " My Bundles here:
     Bundle 'gmarik/vundle'
 
+    Bundle 'Indent-Guides'
+    Bundle 'ShowMarks7'
+    Bundle 'The-NERD-Commenter'
     Bundle 'buftabs'
+    Bundle 'emacscommandline'
     Bundle 'fugitive.vim'
     Bundle 'git-cheat'
+    Bundle 'matchit.zip'
     Bundle 'neocomplcache'
     Bundle 'surround.vim'
-    Bundle 'The-NERD-Commenter'
-    Bundle 'unite.vim'
     Bundle 'unite-colorscheme'
+    Bundle 'unite.vim'
 
-    if filereadable(expand('~/.vimrc.neo'))
-        source ~/.vimrc.neo
-    end
+    Bundle 'Shougo/vimfiler'
 
-    "vim fugitive {{{
-    nnoremap <Space>gd :<C-u>Gdiff<Enter>
-    nnoremap <Space>gs :<C-u>Gstatus<Enter>
-    nnoremap <Space>gl :<C-u>Glog<Enter>
-    nnoremap <Space>ga :<C-u>Gwrite<Enter>
-    nnoremap <Space>gc :<C-u>Gcommit<Enter>
-    nnoremap <Space>gC :<C-u>Git commit --amend<Enter>
-    nnoremap <Space>gb :<C-u>Gblame<Enter>
-    " }}}
-    "
+    " load settings of plugins which is hundled by vundle
+    for f in split(glob('~/.vimfiles/*.vim'), '\n')
+        exe 'source' f
+    endfor
+
+    let g:showmarks_include="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+
+    let g:indent_guides_enable_on_vim_startup = 1
+    let g:indent_guides_guide_size = 1
+    let g:indent_guides_color_change_percent = 30
+    let g:indent_guides_start_level = 2
+
 endif
+
 filetype plugin indent on     " required!
 
 set autochdir
@@ -72,6 +78,14 @@ set noswapfile
 syntax on
 colorscheme elflord
 highlight CursorLine guibg=lightblue ctermbg=DarkGray
+
+" F5: command history
+" F6: search history
+nnoremap <F5> <Esc>q:
+nnoremap <F6> <Esc>q/
+nnoremap q: <Nop>
+nnoremap q/ <Nop>
+nnoremap q? <Nop>
 
 "移動は表示行で
 nnoremap j gj
@@ -171,3 +185,9 @@ set fileformats=unix,dos,mac
 if exists('&ambiwidth')
     set ambiwidth=double
 endif
+
+"" 2.ファイル操作を改善する
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+
+"" 4.作業効率を改善する
+nnoremap <ESC><ESC> :nohlsearch<CR>
