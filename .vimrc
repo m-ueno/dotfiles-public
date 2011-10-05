@@ -2,9 +2,10 @@ set nocompatible
 if version >= 700 " version 7.00 or upper
     """ vundle
     filetype off
-    set rtp+=~/.vim/vundle.git/
+    set rtp+=~/.vim/bundle/vundle/
     call vundle#rc()
     " My Bundles here:
+    Bundle 'gmarik/vundle'
     Bundle 'fugitive.vim'
     Bundle 'git-cheat'
     Bundle 'neocomplcache'

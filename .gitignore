@@ -12,3 +12,5 @@
 tags
 *.pyc
 TAGS
+
+.vim/.netrwhist
