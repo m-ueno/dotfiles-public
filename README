@@ -1,3 +1,6 @@
 Install
   cd ~/dotfiles
+  git submodule init
+  git submodule update
   sh mklinks.sh .*
+  rm ~/.git
