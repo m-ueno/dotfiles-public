@@ -133,6 +133,7 @@ export JAVA_FONTS=/usr/share/fonts/TTF
 export DROPBOX=~/Dropbox
 export GISTY_DIR="$HOME/dev/gists"
 export GISTY_SSL_VERIFY="NONE"
+export PAGER=less
 
 proxy(){
     export http_proxy='http://proxy.kuins.net:8080'

@@ -8,6 +8,7 @@ if version >= 700 " version 7.00 or upper
     " My Bundles here:
     Bundle 'gmarik/vundle'
 
+    Bundle 'Gist.vim'
     Bundle 'Indent-Guides'
     Bundle 'ShowMarks7'
     Bundle 'The-NERD-Commenter'
