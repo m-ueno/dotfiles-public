@@ -54,7 +54,17 @@ alias ys='yaourt -Ss'
 alias yy='yaourt -Sy'
 alias yyy='sudo rm /var/lib/pacman/db.lck'
 echo_yaourt_aliases(){
-    echo "yi: install (yaourt -S)\nys: update&search (yaourt -Ss)\nyy: update&install (yaourt -Sy)\nyc: clean (yaourt -Sc)\nycc: clean (yaourt -Scc)\nremove : yaourt -R"
+echo "List of aliases
+alias yc='yaourt -Sc'
+alias ycc='yaourt -Scc'
+alias yh='echo_yaourt_aliases'
+alias yi='yaourt -S'
+alias yr='yaourt -R'
+alias ys='yaourt -Ss'
+alias yy='yaourt -Sy'
+alias yyy='sudo rm /var/lib/pacman/db.lck'"
+
+#    echo "yi: install (yaourt -S)\nys: update&search (yaourt -Ss)\nyy: update&install (yaourt -Sy)\nyc: clean (yaourt -Sc)\nycc: clean (yaourt -Scc)\nremove : yaourt -R"
 }
 
 ## interpreter
@@ -127,6 +137,7 @@ setopt brace_ccl # enable expand {a-c} => a b c
 setopt equals # expand: =command => `which command`
 setopt autopushd # pushd by 'cd -[tab]
 
+export EDITOR="vim"
 export LESS='-R'
 export PATH=$PATH:~/.gem/ruby/1.9.1/bin:~/bin
 export JAVA_FONTS=/usr/share/fonts/TTF
@@ -195,4 +206,5 @@ fi
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 [ -f ~/perl5/perlbrew/etc/bashrc ] && source ~/perl5/perlbrew/etc/bashrc
+[ -f ~/.rvm/scripts/rvm ] && source ~/.rvm/scripts/rvm
 
