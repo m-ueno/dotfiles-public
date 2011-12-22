@@ -7,7 +7,7 @@
     branch = auto
     ui = true
 [alias]
-    st = status
+    st = !"tig status"
     ci = commit
     br = branch
     co = checkout
