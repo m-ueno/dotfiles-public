@@ -12,7 +12,7 @@ stjerm.lines: 1000
 
 urxvt*background:black
 urxvt*foreground:gray80
-urxvt*cursorColor:darkpink
+urxvt*cursorColor:pink
 urxvt*scrollBar: False
 urxvt*transparent:true
 urxvt*fading:40
@@ -47,7 +47,7 @@ urxvt.underlineURLs: true
 !urxvt*font:xft:IPAGothic,xft:Meiryo
 !urxvt*font:xft:M+2VM+IPAG circle:size=12
 urxvt*font: xft:Bitstream Vera Sans mono:size=14, xft:IPAGothic:size=14
-!urxvt*font: xft:Inconsolata
+!urxvt*font: xft:Inconsolata:size=14
 
 urxvt*color0: #222222
 urxvt*color8: #666666
@@ -78,3 +78,4 @@ urxvt*color15: #FFFFFF
 
 xterm*background:black
 xterm*foreground:snow
+xterm.font: IPAGothic

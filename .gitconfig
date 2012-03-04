@@ -16,3 +16,5 @@
     lg = log -p
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     ls = ls-files
+    unstage = reset HEAD --
+    last = log -1 HEAD
