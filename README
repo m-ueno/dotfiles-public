@@ -1,5 +1,5 @@
 Install
-  cd ~/dotfiles
-  sh mklinks.sh .*
+  ./mklinks.sh .*
   rm ~/.git
-  git submodule add (vundle) ~/.vim/bundle/vundle
+  git submodule add https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
