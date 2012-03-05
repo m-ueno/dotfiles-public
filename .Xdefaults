@@ -46,8 +46,8 @@ urxvt.underlineURLs: true
 
 !urxvt*font:xft:IPAGothic,xft:Meiryo
 !urxvt*font:xft:M+2VM+IPAG circle:size=12
-urxvt*font: xft:Bitstream Vera Sans mono:size=14, xft:IPAGothic:size=14
-!urxvt*font: xft:Inconsolata:size=14
+urxvt*font: xft:Bitstream Vera Sans mono:size=12, xft:IPAGothic:size=12
+!urxvt*font: xft:Inconsolata:size=12
 
 urxvt*color0: #222222
 urxvt*color8: #666666

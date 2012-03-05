@@ -12,10 +12,6 @@ compinit
 autoload -U select-word-style
 select-word-style bash
 
-autoload -U tetris
-zle -N tetris
-bindkey keys tetris
-
 bindkey ";5C" forward-word
 bindkey ";5D" backward-word
 bindkey "^[f" forward-word
