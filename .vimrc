@@ -9,7 +9,7 @@ if version >= 700 " version 7.00 or upper
     Bundle 'gmarik/vundle'
 
     Bundle 'Gist.vim'
-    Bundle 'Indent-Guides'
+"    Bundle 'Indent-Guides'
     Bundle 'ShowMarks7'
     Bundle 'The-NERD-Commenter'
     Bundle 'buftabs'
@@ -21,6 +21,7 @@ if version >= 700 " version 7.00 or upper
     Bundle 'surround.vim'
     Bundle 'unite-colorscheme'
     Bundle 'unite.vim'
+    Bundle 'quickrun.vim'
 
     Bundle 'Shougo/vimfiler'
 
