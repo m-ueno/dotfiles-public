@@ -31,7 +31,7 @@ alias df='df -h'
 alias du='du -h'
 alias d0='du -0'
 alias lessn='less -N'
-alias l='ls'
+#alias l='ls'
 alias ls='ls -F -h --color=always'
 alias la='ls -a'
 alias ll='ls -l'
@@ -172,6 +172,21 @@ function google() {
     w3m http://www.google.co.jp/$opt #引数がなければ $opt は空になる
 }
 alias ggl=google
+
+function l(){
+  if [ $# -lt 1 ]
+  then
+      ls
+  else
+      if [ -f "$1" ]
+      then
+          less "$1"
+      else
+          ls "$1"
+      fi
+  fi
+}
+
 
 
 ## http://d.hatena.ne.jp/mollifier/20100906
