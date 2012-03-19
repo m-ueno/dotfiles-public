@@ -1,5 +1,5 @@
 set nocompatible
-
+>
 if version >= 700 " version 7.00 or upper
     """ vundle
     filetype off
@@ -106,7 +106,19 @@ noremap <C-n> :bnext<CR>
 
 " Plugin
 noremap <silent> <F3> :call BufferList()<CR>
+"" Unite.vim
+
+let g:unite_enable_start_insert=1
+"noremap <C-S-P> :Unite buffer<CR>
+" ファイル一覧
+"noremap <C-S-N> :Unite -buffer-name=file file<CR>
+" recent file
+noremap <C-Z> :Unite file_mru<CR>
 noremap <silent> <F4> :Unite buffer<CR>
+
+" ESCキーを2回押すと終了する
+au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 
 if !exists("W") " doesn't work
     command W w !sudo tee % >/dev/null
