@@ -43,6 +43,7 @@ urxvt.perl-ext: default,url-select,clipboard
 urxvt.keysym.M-u: perl:url-select:select_next
 urxvt.urlLauncher: /usr/bin/opera
 urxvt.underlineURLs: true
+urxvt.iso14755: False
 
 !urxvt*font:xft:IPAGothic,xft:Meiryo
 !urxvt*font:xft:M+2VM+IPAG circle:size=12
@@ -56,8 +57,8 @@ urxvt*color8: #666666
 urxvt*color1: #cc5555
 urxvt*color9: #cf6171
 ! green
-!urxvt*color2: #aece92
-urxvt*color2: #77cc99
+!urxvt*color2: #77cc99
+urxvt*color2: #335555
 urxvt*color10: #c5f779
 ! yellow
 urxvt*color3: #968a38
@@ -65,6 +66,8 @@ urxvt*color11: #fff796
 ! blue
 urxvt*color4: #71C5F4
 urxvt*color12: #67CDE9
+!urxvt*color12: #0099FF
+
 ! magenta
 urxvt*color5: #963c59
 urxvt*color13: #cf9ebe
