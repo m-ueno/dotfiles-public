@@ -113,7 +113,7 @@ let g:unite_enable_start_insert=1
 " ファイル一覧
 "noremap <C-S-N> :Unite -buffer-name=file file<CR>
 " recent file
-noremap <C-Z> :Unite file_mru<CR>
+noremap <C-S-Z> :Unite file_mru<CR>
 noremap <silent> <F4> :Unite buffer<CR>
 
 " ESCキーを2回押すと終了する
