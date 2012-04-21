@@ -1,7 +1,7 @@
 stjerm.key: f12
 !stjerm.opacity: 80
 stjerm.font: IPAGothic
-!stjerm.font: M+2VM+IPAG circle 14 
+!stjerm.font: M+2VM+IPAG circle 14
 !stjerm.font: M+gothic
 stjerm.background: #222200
 stjerm.foreground: #EEEEEE
@@ -41,7 +41,7 @@ URxvt.preeditType: OverTheSpot
 ! Esc Cancel URL selection mode
 urxvt.perl-ext: default,url-select,clipboard
 urxvt.keysym.M-u: perl:url-select:select_next
-urxvt.urlLauncher: /usr/bin/opera
+urxvt.urlLauncher: /usr/bin/opera-next
 urxvt.underlineURLs: true
 urxvt.iso14755: False
 
@@ -78,7 +78,23 @@ urxvt*color14: #71bebe
 urxvt*color7: #bebebe
 urxvt*color15: #FFFFFF
 
+urxvt.antialias: 1
+urxvt.hinting: 1
+urxvt.dpi: 96
+urxvt.autohint: 0
+urxvt.hintstyle: hintslight
+urxvt.rgba:      unknown
+urxvt.lcdfilter: lcddefault
 
 xterm*background:black
 xterm*foreground:snow
 xterm.font: IPAGothic
+
+!http://hiroyukip.exblog.jp/16834561/
+Xft.dpi:       96
+Xft.antialias: 1
+Xft.hinting:   1
+Xft.autohint:  0
+Xft.hintstyle: hintslight
+Xft.rgba:      unknown
+Xft.lcdfilter: lcddefault
