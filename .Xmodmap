@@ -2,8 +2,8 @@
 clear lock
 clear control
 
-keycode 49 = Zenkaku_Hankaku
-add mod4 = Zenkaku_Hankaku
+!jkeycode 49 = Zenkaku_Hankaku
+!add mod4 = Zenkaku_Hankaku
 
 keycode 23 = Tab
 keycode 37 = Control_L

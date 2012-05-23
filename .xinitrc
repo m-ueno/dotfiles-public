@@ -44,7 +44,33 @@ urxvtd -q -o -f
 
 #stjerm &
 #batterymon&
-tilda&
+#tilda&
+dropbox start
+~/bin/iiimf_status_hide
 
-exec awesome
+DEFAULT_SESSION=xmonad
+
+case $1 in
+    kde)
+        exec startkde
+        ;;
+    xfce4)
+        exec startxfce4
+        ;;
+    awesome)
+        exec awesome
+        ;;
+    gnome-session)
+        exec gnome-session
+        ;;
+    *)
+        exec $DEFAULT_SESSION
+        ;;
+esac
+
+#exec awesome
+#exec ck-launch-session startxfce4
+#exec ck-launch-session xmonad
+#exec ck-launch-session gnome-session
+#exec xmonad
 
