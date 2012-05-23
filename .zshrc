@@ -21,6 +21,7 @@ bindkey ' ' magic-space
 # global alias
 alias -g H='| head'
 alias -g G='| grep'
+alias -g Gi='| grep -i'
 alias -g L='| less -R'
 alias -g T='| tail'
 alias -g TE='| tee tee.log'
@@ -76,6 +77,7 @@ alias sbcl='rlwrap sbcl'
 
 ## perl
 alias perl='perl -w'
+alias perldb='rlwrap perl -de1'
 # input/output
 # alias perl_o='perl -wl'
 # alias perl_io='perl -wln'
