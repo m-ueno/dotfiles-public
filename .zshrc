@@ -142,7 +142,7 @@ setopt autopushd # pushd by 'cd -[tab]
 
 export EDITOR="vim"
 export LESS='-R'
-export PATH=$PATH:~/.gem/ruby/1.9.1/bin:~/bin
+export PATH="$PATH":~/.gem/ruby/1.9.1/bin:~/bin
 export JAVA_FONTS=/usr/share/fonts/TTF
 export DROPBOX=~/Dropbox
 export GISTY_DIR="$HOME/dev/gists"
