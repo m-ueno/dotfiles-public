@@ -28,6 +28,7 @@ alias -g TE='| tee tee.log'
 
 alias calc='xcalc'
 #alias cp -r = 'cp -rp'
+alias cx='chmod +x'
 alias df='df -h'
 alias du='du -h'
 alias d0='du -0'

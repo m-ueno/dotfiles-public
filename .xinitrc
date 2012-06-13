@@ -10,7 +10,7 @@ if [ -f "~/Xresources" ]; then
 fi
 
 # In order for cut/paste and drag/drop to work between VM and host, you need to start the vmware-user wrapper.
-vmware-user-suid-wrapper
+#vmware-user-suid-wrapper
 
 # uim-mozc
 export GTK_IM_MODULE="uim"
@@ -45,30 +45,30 @@ urxvtd -q -o -f
 #stjerm &
 #batterymon&
 #tilda&
-dropbox start
-~/bin/iiimf_status_hide
+dropbox.py start
+#~/bin/iiimf_status_hide
 
-DEFAULT_SESSION=xmonad
-
-case $1 in
-    kde)
-        exec startkde
-        ;;
-    xfce4)
-        exec startxfce4
-        ;;
-    awesome)
-        exec awesome
-        ;;
-    gnome-session)
-        exec gnome-session
-        ;;
-    *)
-        exec $DEFAULT_SESSION
-        ;;
-esac
-
-#exec awesome
+#DEFAULT_SESSION=awesome
+#
+#case $1 in
+#    kde)
+#        exec startkde
+#        ;;
+#    xfce4)
+#        exec startxfce4
+#        ;;
+#    awesome)
+#        exec awesome
+#        ;;
+#    gnome-session)
+#        exec gnome-session
+#        ;;
+#    *)
+#        exec $DEFAULT_SESSION
+#        ;;
+#esac
+#
+exec awesome
 #exec ck-launch-session startxfce4
 #exec ck-launch-session xmonad
 #exec ck-launch-session gnome-session
