@@ -3,7 +3,7 @@
 #
 # Executed by startx (run your window manager from here)
 
-setxkbmap jp
+setxkbmap jp -option ctrl:nocaps
 xmodmap $HOME/.Xmodmap
 if [ -f "~/Xresources" ]; then
   xrdb -merge ~/.Xresources
