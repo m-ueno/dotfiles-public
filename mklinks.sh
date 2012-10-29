@@ -1,5 +1,5 @@
 #!/bin/sh
 for file in $@; do
-  echo ln -s `pwd`/$file ~/
+  echo ln -sf `pwd`/$file ~/
   ln -s `pwd`/$file ~/
 done
