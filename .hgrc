@@ -2,13 +2,13 @@
 username = uenop <uenop@arch-vm>
 verbose = True
 
-[extensions]
-color =
-graphlog =
-hgext.bookmarks =
-hggit =
-pager =
-
+#[extensions]
+#color =
+#graphlog =
+#hgext.bookmarks =
+#hggit =
+#pager =
+#
 [pager]
 pager = less
 quiet = True
