@@ -4,3 +4,5 @@ alias yy='apt-get update'
 alias au='apt-get update'
 alias ai='apt-get install'
 alias as='apt-cache search'
+
+export PATH=$PATH:/sbin:/usr/sbin
