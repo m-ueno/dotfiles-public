@@ -14,8 +14,6 @@
 # Allows HTTP and HTTPS connections from anywhere (the normal ports for websites)
 -A INPUT -p tcp --dport 80 -j ACCEPT
 -A INPUT -p tcp --dport 443 -j ACCEPT
-## subsonic
--A INPUT -p tcp --dport 4040 -j ACCEPT
 
 # allow SSH
 -A INPUT -p tcp -m state --state NEW --dport 8022 -j ACCEPT
@@ -36,7 +34,19 @@
 
 # ssh reverse tunnels
 -A INPUT -p tcp -m tcp --dport 20001:20023 -j ACCEPT
+#------------------------------
+## solr
+-A INPUT -p tcp --dport 8080 -j ACCEPT
+## subsonic
+-A INPUT -p tcp --dport 4040 -j ACCEPT
+## ngIRCd
+-A INPUT -p tcp --dport 6667:6669 -j ACCEPT
+## mosh [UDP]
+-A INPUT -p udp --dport 60000:61000 -j ACCEPT
+## vSphere
+-A INPUT -p tcp --dport 902:903 -j ACCEPT
 
+#------------------------------
 # Reject all other inbound - default deny unless explicitly allowed policy:
 -A INPUT -j REJECT
 -A FORWARD -j REJECT
