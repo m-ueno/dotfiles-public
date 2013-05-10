@@ -26,6 +26,18 @@ alias -g L='| less -R'
 alias -g T='| tail'
 alias -g TE='| tee tee.log'
 
+case $(uname -s) in
+    Darwin|FreeBSD)
+        alias ls="ls -hFG"
+        ;;
+    Linux)
+        alias ls="ls --color=always -hF"
+        ;;
+    NetBSD|OpenBSD)
+        alias ls="ls -hF"
+        ;;
+esac
+
 alias calc='xcalc'
 #alias cp -r = 'cp -rp'
 alias cx='chmod +x'
@@ -40,7 +52,7 @@ alias dstat-net='dstat -Tclnd'
 alias dstat-disk='dstat -Tcldr'
 alias lessn='less -N'
 #alias l='ls'
-alias ls='ls -F -h --color=always'
+#alias ls='ls -F -h --color=always'
 alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -al'
@@ -129,9 +141,10 @@ zstyle ':completion:*' hosts \
 # default.zshrc - Mr.Hirose
 setopt auto_cd auto_name_dirs auto_pushd # $cd - [tab]
 setopt extended_history hist_ignore_dups hist_ignore_space prompt_subst
-#setopt extended_glob 
+#setopt extended_glob
 setopt list_types no_beep always_last_prompt
 setopt cdable_vars sh_word_split auto_param_keys pushd_ignore_dups
+setopt noclobber # prevents you from accidentally overwriting an existing file.
 
 # Chapter3. History
 setopt hist_no_store hist_reduce_blanks hist_save_no_dups share_history
@@ -153,7 +166,7 @@ setopt autopushd # pushd by 'cd -[tab]
 
 export EDITOR="vim"
 export LESS='-R'
-export PATH="$PATH":~/.gem/ruby/1.9.1/bin:~/bin
+export PATH=/usr/local/bin:"$PATH":~/.gem/ruby/1.9.1/bin:~/bin
 export JAVA_FONTS=/usr/share/fonts/TTF
 export DROPBOX=~/Dropbox
 export GISTY_DIR="$HOME/dev/gists"
@@ -200,6 +213,27 @@ function l(){
   fi
 }
 
+# http://signalboxes.net/configs/bashrc-for-linux-and-mac/
+ex () {
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2) tar xjf $1 ;;
+            *.tar.gz)    tar xzf $1     ;;
+            *.bz2)       bunzip2 $1       ;;
+            *.rar)       rar x $1     ;;
+            *.gz)        gunzip $1     ;;
+            *.tar)       tar xf $1        ;;
+            *.tbz2)      tar xjf $1      ;;
+            *.tgz)       tar xzf $1       ;;
+            *.zip)       unzip $1     ;;
+            *.Z)         uncompress $1  ;;
+            *.7z)        7z x $1    ;;
+            *) echo "'$1' cannot be extracted via extract()" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
 
 
 ## http://d.hatena.ne.jp/mollifier/20100906
@@ -236,4 +270,3 @@ fi
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 [ -f ~/perl5/perlbrew/etc/bashrc ] && source ~/perl5/perlbrew/etc/bashrc
 [ -f ~/.rvm/scripts/rvm ] && source ~/.rvm/scripts/rvm
-
