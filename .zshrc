@@ -64,7 +64,6 @@ alias rl='rlwrap'
 #alias rm='mv -f --backup=numbered --target-directory ~/.Trash'
 alias sl='ls'
 alias so='source $HOME/.zshrc'
-alias ta='tmux attach'
 alias uptime-l='parallel -j1000% -k ssh {} "cat /proc/loadavg" ::: laurel1 laurel2 laurel3 2>/dev/null'
 alias vi='vim'
 alias wrap='rlwrap'
@@ -166,7 +165,7 @@ setopt autopushd # pushd by 'cd -[tab]
 
 export EDITOR="vim"
 export LESS='-R'
-export PATH=/usr/local/bin:"$PATH":~/.gem/ruby/1.9.1/bin:~/bin
+export PATH=/usr/local/bin:"$PATH":~/bin
 export JAVA_FONTS=/usr/share/fonts/TTF
 export DROPBOX=~/Dropbox
 export GISTY_DIR="$HOME/dev/gists"
@@ -267,6 +266,17 @@ add-zsh-hook precmd _update_vcs_info_msg
 RPROMPT="%1(v|%F{green}%1v%f|)"
 fi
 
+function ta(){
+    exists=`tmux ls|grep window|wc -l`
+    if [ $exists -eq 0 ] ; then
+        tmux
+    elif [ $exists -gt 0 ] ; then
+        tmux attach
+    fi
+}
+
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 [ -f ~/perl5/perlbrew/etc/bashrc ] && source ~/perl5/perlbrew/etc/bashrc
 [ -f ~/.rvm/scripts/rvm ] && source ~/.rvm/scripts/rvm
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

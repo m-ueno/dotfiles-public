@@ -19,3 +19,8 @@
     unstage = reset HEAD --
     last = log -1 HEAD
     fix = !"git add -u && git commit -m 'fix' && git push"
+[url "https://"]
+        insteadOf = git://
+[github]
+	user = m-ueno
+
