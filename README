@@ -1,5 +1,6 @@
 Install
   ./mklinks.sh .*
-  rm ~/.git
-  git submodule add https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+  rm ~/.git ~/.gitmodules
+  git submodule init
+  git submodule update
 
