@@ -271,7 +271,7 @@ function ta(){
     if [ $exists -eq 0 ] ; then
         tmux
     elif [ $exists -gt 0 ] ; then
-        tmux attach
+        tmux attach -d
     fi
 }
 
