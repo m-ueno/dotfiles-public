@@ -1,8 +1,6 @@
 rc_file=~/.dotfiles/.zshrc.ostack
 
 _update_ostack_completion() {
-    a=(nova neutron keystone)
-    echo $a
     echo '' > $rc_file
     for i in $@ ; do
         echo "install: $i"
