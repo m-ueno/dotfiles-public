@@ -274,6 +274,8 @@ function ta(){
         tmux attach -d
     fi
 }
+# zsh-competions
+# fpath=(/usr/local/share/zsh-completions $fpath)
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 [ -f ~/perl5/perlbrew/etc/bashrc ] && source ~/perl5/perlbrew/etc/bashrc

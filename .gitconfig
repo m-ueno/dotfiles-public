@@ -22,5 +22,5 @@
 [url "https://"]
         insteadOf = git://
 [github]
-	user = m-ueno
+    user = m-ueno
 
