@@ -1,4 +1,4 @@
-rc_file=~/.dotfiles/.zshrc.ostack
+rc_file=~/.dotfiles/.bashrc.ostack
 
 _update_ostack_completion() {
     echo '' > $rc_file
