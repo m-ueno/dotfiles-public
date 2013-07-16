@@ -108,6 +108,8 @@ alias perltest='prove -lr t'
 # git
 alias gg='git grep -n'
 
+export GREP_OPTIONS='--color=always'
+
 ## common prompt
 # PROMPT="%m:%n%% "
 PROMPT=$'%{\e[$[31+RANDOM%6]m%}%m:%n%{\e[m%}%% '
@@ -276,6 +278,9 @@ function ta(){
 }
 # zsh-competions
 # fpath=(/usr/local/share/zsh-completions $fpath)
+#
+# Enable C-s after C-r (search-history-backward)
+stty stop undef
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 [ -f ~/perl5/perlbrew/etc/bashrc ] && source ~/perl5/perlbrew/etc/bashrc
