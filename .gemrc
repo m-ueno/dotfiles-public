@@ -1,4 +1,4 @@
-gem: "--user-install --no-ri --no-rdoc"
+gem: "--no-ri --no-rdoc"
 :verbose: true
 :backtrace: true
 :update_sources: true
