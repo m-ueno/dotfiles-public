@@ -1,7 +1,7 @@
 rc_file=~/.dotfiles/.zshrc.ostack
 
 _update_ostack_completion() {
-    echo '' > $rc_file
+    cat /dev/null > $rc_file
     for i in $@ ; do
         echo "install: $i"
         echo "\n# $i" >> $rc_file

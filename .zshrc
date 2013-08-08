@@ -1,14 +1,11 @@
-# Lines configured by zsh-newuser-install
 HISTFILE=~/.hist-zsh
 HISTSIZE=100000
 SAVEHIST=100000
 bindkey -e # emacs
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
 
 autoload -U compinit
 compinit
-# End of lines added by compinstall
+
 autoload -U select-word-style
 select-word-style bash
 
