@@ -1,14 +1,11 @@
-# Lines configured by zsh-newuser-install
 HISTFILE=~/.hist-zsh
 HISTSIZE=100000
 SAVEHIST=100000
 bindkey -e # emacs
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
 
 autoload -U compinit
 compinit
-# End of lines added by compinstall
+
 autoload -U select-word-style
 select-word-style bash
 
@@ -77,18 +74,18 @@ alias ys='yaourt -Ss'
 alias yy='yaourt -Sy'
 alias yyy='sudo rm /var/lib/pacman/db.lck'
 echo_yaourt_aliases(){
-echo "List of aliases
-alias yc='yaourt -Sc'
-alias ycc='yaourt -Scc'
-alias yh='echo_yaourt_aliases'
-alias yi='yaourt -S'
-alias yqo='yaourt -Qo'
-alias yr='yaourt -R'
-alias ys='yaourt -Ss'
-alias yy='yaourt -Sy'
-alias yyy='sudo rm /var/lib/pacman/db.lck'"
+    echo "List of aliases
+    alias yc='yaourt -Sc'
+    alias ycc='yaourt -Scc'
+    alias yh='echo_yaourt_aliases'
+    alias yi='yaourt -S'
+    alias yqo='yaourt -Qo'
+    alias yr='yaourt -R'
+    alias ys='yaourt -Ss'
+    alias yy='yaourt -Sy'
+    alias yyy='sudo rm /var/lib/pacman/db.lck'"
 
-#    echo "yi: install (yaourt -S)\nys: update&search (yaourt -Ss)\nyy: update&install (yaourt -Sy)\nyc: clean (yaourt -Sc)\nycc: clean (yaourt -Scc)\nremove : yaourt -R"
+    #    echo "yi: install (yaourt -S)\nys: update&search (yaourt -Ss)\nyy: update&install (yaourt -Sy)\nyc: clean (yaourt -Sc)\nycc: clean (yaourt -Scc)\nremove : yaourt -R"
 }
 
 ## interpreter
