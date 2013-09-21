@@ -1,9 +1,9 @@
 alias apt-get='sudo apt-get'
-alias aa='apt-get update'
+alias aptitude='sudo aptitude'
 alias yy='apt-get update'
 alias au='apt-get update'
 alias ai='apt-get install'
 alias as='apt-cache search'
+alias ack='ack-grep'
 
 export PATH=$PATH:/sbin:/usr/sbin
-prompt bart
