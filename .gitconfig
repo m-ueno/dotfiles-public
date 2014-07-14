@@ -24,3 +24,5 @@
 [github]
     user = m-ueno
 
+[push]
+	default = matching
