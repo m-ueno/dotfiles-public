@@ -89,6 +89,8 @@ nnoremap q: <Nop>
 nnoremap q/ <Nop>
 nnoremap q? <Nop>
 
+" nnoremap q <NUL>
+
 "移動は表示行で
 nnoremap j gj
 nnoremap k gk
