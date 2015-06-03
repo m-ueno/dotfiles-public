@@ -153,10 +153,10 @@ endif
 
 " 改行コードの自動認識
 set fileformats=unix,dos,mac
-" □とか○の文字があってもカーソル位置がずれないようにする
-if exists('&ambiwidth')
-    set ambiwidth=double
-endif
+"" □とか○の文字があってもカーソル位置がずれないようにする
+"if exists('&ambiwidth')
+"    set ambiwidth=double
+"endif
 
 "" 2.ファイル操作を改善する
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
