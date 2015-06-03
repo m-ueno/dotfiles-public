@@ -22,6 +22,7 @@ if version >= 700 " version 7.00 or upper
     Bundle 'unite-colorscheme'
     Bundle 'unite.vim'
     Bundle 'quickrun.vim'
+    Bundle 'surround.vim'
 
     Bundle 'Shougo/vimfiler'
 
