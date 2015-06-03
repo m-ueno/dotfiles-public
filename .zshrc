@@ -237,6 +237,4 @@ stty stop undef
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 [ -f ~/perl5/perlbrew/etc/bashrc ] && source ~/perl5/perlbrew/etc/bashrc
-[ -f ~/.rvm/scripts/rvm ] && source ~/.rvm/scripts/rvm
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
