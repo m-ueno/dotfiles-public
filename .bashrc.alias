@@ -1,0 +1,50 @@
+# shell
+alias calc='xcalc'
+#alias cp -r = 'cp -rp'
+alias cx='chmod +x'
+alias crontab='crontab -i'
+alias d0='du -0'
+alias df='df -h'
+alias du='du -h'
+alias dstat-full='dstat -Tclmdrn'
+alias dstat-mem='dstat -Tclm'
+alias dstat-cpu='dstat -Tclr'
+alias dstat-net='dstat -Tclnd'
+alias dstat-disk='dstat -Tcldr'
+alias lessn='less -N'
+#alias l='ls'
+alias ls='ls -F -h --color=always'
+alias la='ls -a'
+alias ll='ls -l'
+alias lla='ls -al'
+alias lt='ls -lrt'
+alias llt='ls -lrt'
+alias llat='ls -lart'
+alias reloadz='exec zsh'
+alias rl='rlwrap'
+#alias rm='mv -f --backup=numbered --target-directory ~/.Trash'
+alias sl='ls'
+alias uptime-l='parallel -j1000% -k ssh {} "cat /proc/loadavg" ::: laurel1 laurel2 laurel3 2>/dev/null'
+alias vi='vim'
+alias wrap='rlwrap'
+
+## interpreter
+alias clj='rlwrap clj'
+alias clojure='clj'
+alias gosh='rlwrap gosh'
+alias sbcl='rlwrap sbcl'
+
+# tmux
+alias ta='tmux attach' # pkill stjerm後
+
+## perl
+alias perl='perl -w'
+alias perldb='rlwrap perl -de1'
+alias perltest='prove -lr t'
+# input/output
+# alias perl_o='perl -wl'
+# alias perl_io='perl -wln'
+# alias perl_iop='perl -wlp'
+
+# git
+alias gg='git grep -n'

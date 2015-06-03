@@ -35,36 +35,9 @@ case $(uname -s) in
         ;;
 esac
 
-alias calc='xcalc'
-#alias cp -r = 'cp -rp'
-alias cx='chmod +x'
-alias crontab='crontab -i'
-alias d0='du -0'
-alias df='df -h'
-alias du='du -h'
-alias dstat-full='dstat -Tclmdrn'
-alias dstat-mem='dstat -Tclm'
-alias dstat-cpu='dstat -Tclr'
-alias dstat-net='dstat -Tclnd'
-alias dstat-disk='dstat -Tcldr'
-alias lessn='less -N'
-#alias l='ls'
-#alias ls='ls -F -h --color=always'
-alias la='ls -a'
-alias ll='ls -l'
-alias lla='ls -al'
-alias lt='ls -lrt'
-alias llt='ls -lrt'
-alias llat='ls -lart'
-alias reloadz='exec zsh'
-alias rl='rlwrap'
-#alias rm='mv -f --backup=numbered --target-directory ~/.Trash'
-alias sl='ls'
-alias so='source $HOME/.zshrc'
-alias uptime-l='parallel -j1000% -k ssh {} "cat /proc/loadavg" ::: laurel1 laurel2 laurel3 2>/dev/null'
-alias vi='vim'
-alias wrap='rlwrap'
-alias xcalc='xcalc -rpn'
+source ~/.bashrc.alias
+
+# Arch Linux
 alias yc='yaourt -Sc'
 alias ycc='yaourt -Scc'
 alias yh='echo_yaourt_aliases'
@@ -87,23 +60,6 @@ echo_yaourt_aliases(){
 
     #    echo "yi: install (yaourt -S)\nys: update&search (yaourt -Ss)\nyy: update&install (yaourt -Sy)\nyc: clean (yaourt -Sc)\nycc: clean (yaourt -Scc)\nremove : yaourt -R"
 }
-
-## interpreter
-alias clj='rlwrap clj'
-alias clojure='clj'
-alias gosh='rlwrap gosh'
-alias sbcl='rlwrap sbcl'
-
-## perl
-alias perl='perl -w'
-alias perldb='rlwrap perl -de1'
-# input/output
-# alias perl_o='perl -wl'
-# alias perl_io='perl -wln'
-# alias perl_iop='perl -wlp'
-alias perltest='prove -lr t'
-# git
-alias gg='git grep -n'
 
 export GREP_OPTIONS='--color=always'
 
