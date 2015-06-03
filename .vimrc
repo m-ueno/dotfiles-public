@@ -10,6 +10,8 @@ if version >= 700 " version 7.00 or upper
 
     Bundle 'Gist.vim'
 "    Bundle 'Indent-Guides'
+    Bundle 'itchyny/calendar.vim'
+    Bundle 'itchyny/lightline.vim'
     Bundle 'ShowMarks7'
     Bundle 'The-NERD-Commenter'
     Bundle 'buftabs'
@@ -63,6 +65,10 @@ set smartcase     " ignore case if search pattern is all lowercase, case-sensiti
 set smarttab      " insert tabs on the start of a line according to shiftwidth, not tabstop
 set tabstop=4     " a tab is four spaces
 set wrap
+
+" itchyny
+set laststatus=2 
+set t_Co=256
 
 set history=1000         " remember more commands and search history
 set noerrorbells         " don't beep
@@ -163,3 +169,12 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 
 "" 4.作業効率を改善する
 nnoremap <ESC><ESC> :nohlsearch<CR>
+
+" lightline
+let g:lightline = {
+      \ 'colorscheme': 'wombat'
+      \ }
+
+
+" itchyny/calendar
+let g:calendar_google_calendar = 1
