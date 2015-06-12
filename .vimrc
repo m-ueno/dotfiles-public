@@ -129,7 +129,7 @@ noremap <silent> <F4> :Unite buffer<CR>
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 
-if !exists("W") " doesn't work
+if !exists("W")
     command W w !sudo tee % >/dev/null
 endif
 
@@ -159,10 +159,6 @@ endif
 
 " 改行コードの自動認識
 set fileformats=unix,dos,mac
-"" □とか○の文字があってもカーソル位置がずれないようにする
-"if exists('&ambiwidth')
-"    set ambiwidth=double
-"endif
 
 "" 2.ファイル操作を改善する
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
