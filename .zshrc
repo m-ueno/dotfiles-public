@@ -23,6 +23,8 @@ alias -g L='| less -R'
 alias -g T='| tail'
 alias -g TE='| tee tee.log'
 
+source ~/.bashrc.alias
+
 case $(uname -s) in
     Darwin|FreeBSD)
         alias ls="ls -hFG"
@@ -34,8 +36,6 @@ case $(uname -s) in
         alias ls="ls -hF"
         ;;
 esac
-
-source ~/.bashrc.alias
 
 # Arch Linux
 alias yc='yaourt -Sc'
