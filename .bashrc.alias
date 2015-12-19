@@ -1,6 +1,7 @@
 # shell
 alias calc='xcalc'
 #alias cp -r = 'cp -rp'
+alias cls='printf "\033c"'
 alias cx='chmod +x'
 alias crontab='crontab -i'
 alias d0='du -0'
