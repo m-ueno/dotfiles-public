@@ -21,12 +21,13 @@ if version >= 700 " version 7.00 or upper
     Bundle 'matchit.zip'
     Bundle 'neocomplcache'
     Bundle 'surround.vim'
-    Bundle 'unite-colorscheme'
-    Bundle 'unite.vim'
     Bundle 'quickrun.vim'
     Bundle 'surround.vim'
 
+    Bundle 'Shougo/unite.vim'
+    Bundle 'unite-colorscheme'
     Bundle 'Shougo/vimfiler'
+    Bundle 'Shougo/vimproc.vim'
 
     " load settings of plugins which is hundled by vundle
     for f in split(glob('~/.vimfiles/*.vim'), '\n')
