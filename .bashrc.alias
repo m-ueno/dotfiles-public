@@ -35,11 +35,7 @@ alias clojure='clj'
 alias gosh='rlwrap gosh'
 alias sbcl='rlwrap sbcl'
 
-# tmux
-alias ta='tmux attach' # pkill stjerm後
-
 ## perl
-alias perl='perl -w'
 alias perldb='rlwrap perl -de1'
 alias perltest='prove -lr t'
 # input/output
