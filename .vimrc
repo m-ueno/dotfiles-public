@@ -45,7 +45,7 @@ endif
 
 filetype plugin indent on     " required!
 
-set autochdir
+" set autochdir
 set autoindent    " always set autoindenting on
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set copyindent    " copy the previous indentation on autoindenting
