@@ -57,8 +57,6 @@ echo_yaourt_aliases(){
     alias ys='yaourt -Ss'
     alias yy='yaourt -Sy'
     alias yyy='sudo rm /var/lib/pacman/db.lck'"
-
-    #    echo "yi: install (yaourt -S)\nys: update&search (yaourt -Ss)\nyy: update&install (yaourt -Sy)\nyc: clean (yaourt -Sc)\nycc: clean (yaourt -Scc)\nremove : yaourt -R"
 }
 
 export GREP_OPTIONS='--color=always'
@@ -83,10 +81,7 @@ zstyle ':completion:*:date:*' fake \
     '+%Y-%m-%d:西暦-月-日' \
     '+%Y/%m/%d %H\:%M\:%S: 西暦/月/日 時\:分\:秒'
 zstyle ':completion:*:date:*' menu yes select=2
-zstyle ':completion:*' hosts \
-    proxy.kuins.net:8080 \
-    182.163.78.215
-#compdef for gisty
+
 #zstyle ':completion:*:gisty:*' list help post sync_delete sync about private_post pull_all
 #   '*:tail:_files'
 
@@ -127,18 +122,6 @@ export GISTY_DIR="$HOME/dev/gists"
 export GISTY_SSL_VERIFY="NONE"
 export PAGER=less
 
-proxy(){
-    export http_proxy='http://proxy.kuins.net:8080'
-    export https_proxy='http://proxy.kuins.net:8080'
-    export ftp_proxy='http://proxy.kuins.net:8080'
-    echo 'use_proxy=on' > ~/.wgetrc
-}
-unproxy(){
-    unset http_proxy
-    unset https_proxy
-    unset ftp_proxy
-    echo 'use_proxy=off' > ~/.wgetrc
-}
 function google() {
     local str opt
     if [ $# != 0 ]; then # 引数が存在すれば
@@ -213,12 +196,12 @@ if is-at-least 4.3.10; then
     zstyle ':vcs_info:git:*' actionformats '(%s)-[%b|%a] %c%u'
 
     function _update_vcs_info_msg() {
-    psvar=()
-    LANG=en_US.UTF-8 vcs_info
-    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-}
-add-zsh-hook precmd _update_vcs_info_msg
-RPROMPT="%1(v|%F{green}%1v%f|)"
+        psvar=()
+        LANG=en_US.UTF-8 vcs_info
+        [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+    }
+    add-zsh-hook precmd _update_vcs_info_msg
+    RPROMPT="%1(v|%F{green}%1v%f|)"
 fi
 
 function ta(){
