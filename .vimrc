@@ -177,3 +177,6 @@ let g:lightline = {
 let g:calendar_google_calendar = 1
 
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx
+autocmd BufNewFile *.py 0r $HOME/.vim/template/template.py
+autocmd BufNewFile *.html 0r $HOME/.vim/template/template.html
+
