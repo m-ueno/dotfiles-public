@@ -1,5 +1,5 @@
 set nocompatible
->
+
 if version >= 700 " version 7.00 or upper
     """ vundle
     filetype off
@@ -20,10 +20,9 @@ if version >= 700 " version 7.00 or upper
     Bundle 'git-cheat'
     Bundle 'matchit.zip'
     Bundle 'neocomplcache'
+    Bundle 'nginx.vim'
     Bundle 'surround.vim'
     Bundle 'quickrun.vim'
-    Bundle 'surround.vim'
-
     Bundle 'Shougo/unite.vim'
     Bundle 'unite-colorscheme'
     Bundle 'Shougo/vimfiler'
@@ -48,6 +47,7 @@ filetype plugin indent on     " required!
 " set autochdir
 set autoindent    " always set autoindenting on
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
+set completeopt=menu   " default: preview,menuone
 set copyindent    " copy the previous indentation on autoindenting
 set cursorline
 set expandtab
@@ -175,3 +175,5 @@ let g:lightline = {
 
 " itchyny/calendar
 let g:calendar_google_calendar = 1
+
+au BufRead,BufNewFile /etc/nginx/* set ft=nginx

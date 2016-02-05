@@ -19,7 +19,9 @@ bindkey ' ' magic-space
 alias -g H='| head'
 alias -g G='| grep'
 alias -g Gi='| grep -i'
+alias -g J='| python -mjson.tool'
 alias -g L='| less -R'
+alias -g P='| peco'
 alias -g T='| tail'
 alias -g TE='| tee tee.log'
 
@@ -37,7 +39,6 @@ case $(uname -s) in
         ;;
 esac
 
-# Arch Linux
 alias yc='yaourt -Sc'
 alias ycc='yaourt -Scc'
 alias yh='echo_yaourt_aliases'
@@ -205,6 +206,11 @@ if is-at-least 4.3.10; then
 fi
 
 function ta(){
+    if [ $TERM = "screen" ] ; then
+        echo "nop"
+        return
+    fi
+
     exists=`tmux ls|grep window|wc -l`
     if [ $exists -eq 0 ] ; then
         tmux
@@ -217,6 +223,31 @@ function ta(){
 #
 # Enable C-s after C-r (search-history-backward)
 stty stop undef
+
+# peco
+
+function peco-select-history() {
+    typeset tac
+    if which tac > /dev/null; then
+        tac=tac
+    else
+        tac='tail -r'
+    fi
+    BUFFER=$(fc -l -n 1 | eval $tac | peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle redisplay
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
+
+function peco-pkill() {
+    for pid in `ps aux | peco | awk '{ print $2 }'`
+    do
+        kill $pid
+        echo "Killed ${pid}"
+    done
+}
+alias pk="peco-pkill"
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 [ -f ~/perl5/perlbrew/etc/bashrc ] && source ~/perl5/perlbrew/etc/bashrc
