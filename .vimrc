@@ -23,10 +23,12 @@ if version >= 700 " version 7.00 or upper
     Bundle 'nginx.vim'
     Bundle 'surround.vim'
     Bundle 'quickrun.vim'
+    Bundle 'scrooloose/syntastic.git'
     Bundle 'Shougo/unite.vim'
     Bundle 'unite-colorscheme'
     Bundle 'Shougo/vimfiler'
     Bundle 'Shougo/vimproc.vim'
+
 
     " load settings of plugins which is hundled by vundle
     for f in split(glob('~/.vimfiles/*.vim'), '\n')
@@ -179,4 +181,18 @@ let g:calendar_google_calendar = 1
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx
 autocmd BufNewFile *.py 0r $HOME/.vim/template/template.py
 autocmd BufNewFile *.html 0r $HOME/.vim/template/template.html
+
+" Statusline
+"" Syntastic recommended settings
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_python_python_exec = 'python3'
 
