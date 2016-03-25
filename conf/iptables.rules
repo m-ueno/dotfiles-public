@@ -1,5 +1,10 @@
 # cf. Debian Wiki
 # date: 2013-03-07
+
+# Usage
+#   iptables-restore < /path/to/file
+#   iptables-save > another_file
+
 *filter
 
 # Allows all loopback (lo0) traffic and drop all traffic to 127/8 that doesn't use lo0
@@ -35,12 +40,6 @@
 # ssh reverse tunnels
 -A INPUT -p tcp -m tcp --dport 20001:20023 -j ACCEPT
 #------------------------------
-## solr
--A INPUT -p tcp --dport 8080 -j ACCEPT
-## subsonic
--A INPUT -p tcp --dport 4040 -j ACCEPT
-## ngIRCd
--A INPUT -p tcp --dport 6667:6669 -j ACCEPT
 ## mosh [UDP]
 -A INPUT -p udp --dport 60000:61000 -j ACCEPT
 ## vSphere
