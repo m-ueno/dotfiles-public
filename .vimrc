@@ -30,6 +30,11 @@ if version >= 700 " version 7.00 or upper
     Bundle 'Shougo/vimfiler'
     Bundle 'Shougo/vimproc.vim'
 
+    Bundle 'haya14busa/incsearch.vim'
+    Bundle 'kien/ctrlp.vim'
+    Bundle 'glidenote/memolist.vim'
+
+
     " load settings of plugins which is hundled by vundle
     for f in split(glob('~/.vimfiles/*.vim'), '\n')
         exe 'source' f
@@ -190,3 +195,39 @@ autocmd BufNewFile *.html 0r $HOME/.vim/template/template.html
 augroup set_kp_help
     autocmd FileType vim setlocal keywordprg=:help
 augroup END
+
+" incsearch.vim: incrementally highlights ALL pattern matches
+"map /  <Plug>(incsearch-forward)
+"map ?  <Plug>(incsearch-backward)
+"map g/ <Plug>(incsearch-stay)
+
+let g:incsearch#auto_nohlsearch = 1
+nmap n  <Plug>(incsearch-nohl-n)
+nmap N  <Plug>(incsearch-nohl-N)
+nmap *  <Plug>(incsearch-nohl-*)
+
+" NERDCommenter : コメント挿入削除トグル
+"" トグル : <Leader>c<Space>
+"" 末尾に挿入: <Leader>cA
+
+"" /**/ ではなく /*  */ にする
+let NERDSpaceDelims = 1
+"" 警告の抑制
+let NERDShutUp = 1
+
+nmap #  <Plug>(incsearch-nohl-#)
+nmap g* <Plug>(incsearch-nohl-g*)
+nmap g# <Plug>(incsearch-nohl-g#)
+
+" ctrlp: Fuzzy file, buffer, mru, tag, etc finder.
+let g:ctrlp_map = '<C-S-P>'
+let g:ctrlp_use_migemo = 0
+let g:ctrlp_clear_cache_on_exit = 0   " 終了時キャッシュをクリアしない
+let g:ctrlp_mruf_max            = 500 " MRUの最大記録数
+let g:ctrlp_open_new_file       = 1   " 新規ファイル作成時にタブで開く
+
+" memoist: 日付＋タイトルのメモファイルを作成
+let g:memolist_path = "~/Dropbox/Documents/memo"
+nnoremap <Leader>mn  :MemoNew<CR>
+nnoremap <Leader>ml  :MemoList<CR>
+nnoremap <Leader>mg  :MemoGrep<CR>
