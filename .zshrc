@@ -252,3 +252,4 @@ alias pk="peco-pkill"
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 [ -f ~/perl5/perlbrew/etc/bashrc ] && source ~/perl5/perlbrew/etc/bashrc
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
