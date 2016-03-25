@@ -114,6 +114,7 @@ setopt brace_ccl # enable expand {a-c} => a b c
 setopt equals # expand: =command => `which command`
 setopt autopushd # pushd by 'cd -[tab]
 
+export DOTFILES=~/.dotfiles
 export EDITOR="vim"
 export LESS='-R'
 export PATH=/usr/local/bin:"$PATH":~/bin
@@ -249,6 +250,7 @@ function peco-pkill() {
 }
 alias pk="peco-pkill"
 
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
-
+[ -f $DOTFILES/zsh/http_status_codes.zsh ] && source $DOTFILES/zsh/http_status_codes.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
