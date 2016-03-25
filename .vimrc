@@ -8,6 +8,7 @@ if version >= 700 " version 7.00 or upper
     " My Bundles here:
     Bundle 'gmarik/vundle'
 
+    Bundle 'airblade/vim-gitgutter'
     Bundle 'Gist.vim'
 "    Bundle 'Indent-Guides'
     Bundle 'itchyny/calendar.vim'
@@ -180,3 +181,7 @@ au BufRead,BufNewFile /etc/nginx/* set ft=nginx
 autocmd BufNewFile *.py 0r $HOME/.vim/template/template.py
 autocmd BufNewFile *.html 0r $HOME/.vim/template/template.html
 
+" `K` to view help
+augroup set_kp_help
+    autocmd FileType vim setlocal keywordprg=:help
+augroup END
