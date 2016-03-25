@@ -108,6 +108,7 @@ nnoremap <F6> <Esc>q/
 nnoremap q: <Nop>
 nnoremap q/ <Nop>
 nnoremap q? <Nop>
+nnoremap qq <Nop>
 
 " nnoremap q <NUL>
 
