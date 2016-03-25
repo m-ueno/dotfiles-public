@@ -9,6 +9,7 @@ if version >= 700 " version 7.00 or upper
     Bundle 'gmarik/vundle'
 
     Bundle 'airblade/vim-gitgutter'
+    Bundle 'altercation/vim-colors-solarized'
     Bundle 'Gist.vim'
 "    Bundle 'Indent-Guides'
     Bundle 'itchyny/calendar.vim'
@@ -87,8 +88,13 @@ set noswapfile
 
 " Look and Feel
 syntax on
-colorscheme elflord
-highlight CursorLine guibg=lightblue ctermbg=DarkGray
+set background=dark
+colorscheme solarized
+
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+
+" highlight CursorLine guibg=lightblue ctermbg=DarkGray
 
 " F5: command history
 " F6: search history
@@ -168,11 +174,10 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 "" 4.作業効率を改善する
 nnoremap <ESC><ESC> :nohlsearch<CR>
 
-" lightline
+" itchyny/lightline
 let g:lightline = {
-      \ 'colorscheme': 'wombat'
+      \ 'colorscheme': 'solarized'
       \ }
-
 
 " itchyny/calendar
 let g:calendar_google_calendar = 1
