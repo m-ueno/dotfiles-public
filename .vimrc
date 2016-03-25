@@ -3,7 +3,7 @@ set nocompatible
 if version >= 700 " version 7.00 or upper
     """ vundle
     filetype off
-    set rtp+=~/.vim/bundle/vundle/
+    set runtimepath+=~/.vim/bundle/vundle/
     call vundle#rc()
     " My Bundles here:
     Bundle 'gmarik/vundle'
@@ -68,7 +68,7 @@ set tabstop=4     " a tab is four spaces
 set wrap
 
 " itchyny
-set laststatus=2 
+set laststatus=2
 set t_Co=256
 
 set history=1000         " remember more commands and search history
@@ -130,11 +130,11 @@ noremap <silent> <F4> :Unite buffer<CR>
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 
-if !exists("W")
+if !exists(":W")
     command W w !sudo tee % >/dev/null
 endif
 
-" Execute python script C-P 
+" Execute python script C-P
 "function! s:ExecPy()
 "    exe "!" . &ft . " %"
 ":endfunction
