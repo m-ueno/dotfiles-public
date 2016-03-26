@@ -1,55 +1,35 @@
 set nocompatible
 
-if version >= 700 " version 7.00 or upper
-    """ vundle
-    filetype off
-    set runtimepath+=~/.vim/bundle/vundle/
-    call vundle#rc()
-    " My Bundles here:
-    Bundle 'gmarik/vundle'
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'airblade/vim-gitgutter'
+Plug 'altercation/vim-colors-solarized'
+"Plug 'Gist.vim'
+"Plug 'itchyny/calendar.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'ShowMarks7'
+Plug 'The-NERD-Commenter'
+Plug 'buftabs'
+Plug 'emacscommandline'
+"Plug 'fugitive.vim'
+"Plug 'git-cheat'
+Plug 'matchit.zip'
+"Plug 'neocomplcache'
+Plug 'nginx.vim'
+"Plug 'surround.vim'
+"Plug 'quickrun.vim'
+"Plug 'Shougo/unite.vim'
+"Plug 'unite-colorscheme'
+"Plug 'Shougo/vimfiler'
+"Plug 'Shougo/vimproc.vim'
+"
+"Plug 'haya14busa/incsearch.vim'
+"Plug 'kien/ctrlp.vim'
+"Plug 'glidenote/memolist.vim'
+"
+let g:showmarks_include="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+call plug#end()
 
-    Bundle 'airblade/vim-gitgutter'
-    Bundle 'altercation/vim-colors-solarized'
-    Bundle 'Gist.vim'
-"    Bundle 'Indent-Guides'
-    Bundle 'itchyny/calendar.vim'
-    Bundle 'itchyny/lightline.vim'
-    Bundle 'ShowMarks7'
-    Bundle 'The-NERD-Commenter'
-    Bundle 'buftabs'
-    Bundle 'emacscommandline'
-    Bundle 'fugitive.vim'
-    Bundle 'git-cheat'
-    Bundle 'matchit.zip'
-    Bundle 'neocomplcache'
-    Bundle 'nginx.vim'
-    Bundle 'surround.vim'
-    Bundle 'quickrun.vim'
-    Bundle 'Shougo/unite.vim'
-    Bundle 'unite-colorscheme'
-    Bundle 'Shougo/vimfiler'
-    Bundle 'Shougo/vimproc.vim'
-
-    Bundle 'haya14busa/incsearch.vim'
-    Bundle 'kien/ctrlp.vim'
-    Bundle 'glidenote/memolist.vim'
-
-
-    " load settings of plugins which is hundled by vundle
-    for f in split(glob('~/.vimfiles/*.vim'), '\n')
-        exe 'source' f
-    endfor
-
-    let g:showmarks_include="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-
-    let g:indent_guides_enable_on_vim_startup = 1
-    let g:indent_guides_guide_size = 1
-    let g:indent_guides_color_change_percent = 30
-    let g:indent_guides_start_level = 2
-
-endif
-
-filetype plugin indent on     " required!
 
 " set autochdir
 set autoindent    " always set autoindenting on
