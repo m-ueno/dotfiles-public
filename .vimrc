@@ -1,6 +1,7 @@
 set nocompatible
 
 call plug#begin('~/.vim/plugged')
+Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-sensible'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'airblade/vim-gitgutter'
