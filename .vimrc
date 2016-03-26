@@ -32,11 +32,12 @@ let g:showmarks_include="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 Plug 'vim-scripts/vim-auto-save'
 let g:auto_save = 1
 
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+
 call plug#end()
 
-filetype plugin indent on
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+filetype plugin indent on
 
 " set autochdir
 set autoindent    " always set autoindenting on
