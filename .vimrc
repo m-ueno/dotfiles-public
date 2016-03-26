@@ -81,7 +81,6 @@ set noswapfile
 " Look and Feel
 syntax on
 set background=dark
-colorscheme solarized
 
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
@@ -219,3 +218,5 @@ let g:memolist_path = "~/Dropbox/Documents/memo"
 nnoremap <Leader>mn  :MemoNew<CR>
 nnoremap <Leader>ml  :MemoList<CR>
 nnoremap <Leader>mg  :MemoGrep<CR>
+
+colorscheme solarized
