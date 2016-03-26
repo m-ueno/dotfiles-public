@@ -28,8 +28,15 @@ Plug 'nginx.vim'
 "Plug 'glidenote/memolist.vim'
 "
 let g:showmarks_include="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+
+Plug 'vim-scripts/vim-auto-save'
+let g:auto_save = 1
+
 call plug#end()
 
+filetype plugin indent on
+
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
 " set autochdir
 set autoindent    " always set autoindenting on
