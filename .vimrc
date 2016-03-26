@@ -1,6 +1,7 @@
 set nocompatible
 
 call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-sensible'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
@@ -35,7 +36,6 @@ let g:auto_save = 1
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
 call plug#end()
-
 
 filetype plugin indent on
 
