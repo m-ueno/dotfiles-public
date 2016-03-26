@@ -25,9 +25,9 @@ Plug 'nginx.vim'
 "Plug 'Shougo/vimfiler'
 "Plug 'Shougo/vimproc.vim'
 "
-"Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch.vim'
 "Plug 'kien/ctrlp.vim'
-"Plug 'glidenote/memolist.vim'
+Plug 'glidenote/memolist.vim'
 "
 let g:showmarks_include="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
