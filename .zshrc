@@ -291,3 +291,8 @@ fi
 source $DOTFILES/zsh/zplug-init.zsh
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+# profiling
+if (which zprof > /dev/null) ;then
+    zprof | less
+fi
