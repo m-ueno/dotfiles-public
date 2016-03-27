@@ -1,6 +1,6 @@
-HISTFILE=~/.hist-zsh
-HISTSIZE=100000
-SAVEHIST=100000
+export HISTFILE=~/.hist-zsh
+export HISTSIZE=100000
+export SAVEHIST=100000
 bindkey -e # emacs
 
 autoload -U compinit
@@ -173,7 +173,6 @@ ex () {
         echo "'$1' is not a valid file"
     fi
 }
-
 
 ## http://d.hatena.ne.jp/mollifier/20100906
 # gitの作業ディレクトリに変更があるか。
