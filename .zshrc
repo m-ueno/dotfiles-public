@@ -124,6 +124,10 @@ export GISTY_DIR="$HOME/dev/gists"
 export GISTY_SSL_VERIFY="NONE"
 export PAGER=less
 
+function mkcd() {
+    mkdir -p $@ && cd $@
+}
+
 function google() {
     local str opt
     if [ $# != 0 ]; then # 引数が存在すれば

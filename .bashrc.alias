@@ -45,3 +45,4 @@ alias perltest='prove -lr t'
 
 # git
 alias gg='git grep -n'
+alias gs='tig status'
