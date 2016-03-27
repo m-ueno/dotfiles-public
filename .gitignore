@@ -16,3 +16,5 @@ TAGS
 .vim/.netrwhist
 .vim/bundle/
 .vim/plugged/
+
+zsh/zplug/*
