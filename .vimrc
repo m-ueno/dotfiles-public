@@ -1,7 +1,7 @@
 set nocompatible
 
 call plug#begin('~/.vim/plugged')
-Plug 'terryma/vim-multiple-cursors'
+"Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-sensible'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'airblade/vim-gitgutter'
@@ -170,7 +170,7 @@ nnoremap <ESC><ESC> :nohlsearch<CR>
 
 " itchyny/lightline
 let g:lightline = {
-      \ 'colorscheme': 'solarized'
+      \ 'colorscheme': 'wombat'
       \ }
 
 " itchyny/calendar
@@ -222,3 +222,7 @@ nnoremap <Leader>ml  :MemoList<CR>
 nnoremap <Leader>mg  :MemoGrep<CR>
 
 colorscheme solarized
+
+if filereadable(expand($HOME.'/.local/.vimrc'))
+  source $HOME/.local/.vimrc
+endif

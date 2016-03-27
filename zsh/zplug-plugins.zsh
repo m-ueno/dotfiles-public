@@ -6,7 +6,7 @@ zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-syntax-highlighting, nice:10"
 zplug "zsh-users/zaw, nice:10"
 
-zplug "plugins/git, from:oh-my-zsh"
+# zplug "plugins/git, from:oh-my-zsh"
 zplug "tcnksm/docker-alias, of:zshrc, as:plugin"
 zplug "mrowa44/emojify, as:command, of:emojify"
 zplug "djui/alias-tips"
