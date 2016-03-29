@@ -39,27 +39,6 @@ case $(uname -s) in
         ;;
 esac
 
-alias yc='yaourt -Sc'
-alias ycc='yaourt -Scc'
-alias yh='echo_yaourt_aliases'
-alias yi='yaourt -S'
-alias yr='yaourt -Rs'
-alias ys='yaourt -Ss'
-alias yy='yaourt -Sy'
-alias yyy='sudo rm /var/lib/pacman/db.lck'
-echo_yaourt_aliases(){
-    echo "List of aliases
-    alias yc='yaourt -Sc'
-    alias ycc='yaourt -Scc'
-    alias yh='echo_yaourt_aliases'
-    alias yi='yaourt -S'
-    alias yqo='yaourt -Qo'
-    alias yr='yaourt -R'
-    alias ys='yaourt -Ss'
-    alias yy='yaourt -Sy'
-    alias yyy='sudo rm /var/lib/pacman/db.lck'"
-}
-
 export GREP_OPTIONS='--color=always'
 
 ## common prompt
@@ -299,6 +278,6 @@ source $DOTFILES/zsh/zplug-init.zsh
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 # profiling
-if (which zprof > /dev/null) ;then
+if (which zprof >/dev/null 2>&1) ;then
     zprof | less
 fi
