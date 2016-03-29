@@ -221,7 +221,20 @@ nnoremap <Leader>mn  :MemoNew<CR>
 nnoremap <Leader>ml  :MemoList<CR>
 nnoremap <Leader>mg  :MemoGrep<CR>
 
-colorscheme solarized
+colorscheme elflord
+
+if has("mac")
+    " mac用の設定
+    colorscheme solarized
+elseif has("unix")
+    " unix固有の設定
+elseif has("win64")
+    " 64bit_windows固有の設定
+elseif has("win32unix")
+    " Cygwin固有の設定
+elseif has("win32")
+    " 32bit_windows固有の設定
+endif
 
 if filereadable(expand($HOME.'/.local/.vimrc'))
   source $HOME/.local/.vimrc
