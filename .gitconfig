@@ -21,6 +21,7 @@
     unstage = reset HEAD --
     last = log -1 HEAD
     fix = !"git add -u && git commit -m 'fix' && git push"
+    branch-root = merge-base master HEAD
 [diff]
     tool = vimdiff
     patience = true
@@ -34,3 +35,5 @@
     default = matching
 [core]
     excludesfile = $HOME/.gitignore_global
+[rebase]
+    autosquash = true  # See help rebase
