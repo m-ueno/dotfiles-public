@@ -35,6 +35,7 @@ Plug 'vim-scripts/vim-auto-save'
 let g:auto_save = 1
 
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'fatih/vim-go'
 
 call plug#end()
 
