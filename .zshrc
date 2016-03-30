@@ -188,6 +188,12 @@ if is-at-least 4.3.10; then
     RPROMPT="%1(v|%F{green}%1v%f|)"
 fi
 
+function gittips {
+    cat <<EOH
+  stash save -u,--include-untracked
+EOH
+}
+
 function ta(){
     if [ $TERM = "screen" ] ; then
         echo "nop"
