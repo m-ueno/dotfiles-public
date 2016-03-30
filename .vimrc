@@ -221,7 +221,18 @@ nnoremap <Leader>mn  :MemoNew<CR>
 nnoremap <Leader>ml  :MemoList<CR>
 nnoremap <Leader>mg  :MemoGrep<CR>
 
-colorscheme solarized
+if has("mac")
+    colorscheme solarized
+elseif has("unix")
+    " unix (linux?)
+    colorscheme elflord
+elseif has("win64")
+    " 64bit_windows
+elseif has("win32unix")
+    " Cygwin
+elseif has("win32")
+    " 32bit_windows
+endif
 
 if filereadable(expand($HOME.'/.local/.vimrc'))
   source $HOME/.local/.vimrc
