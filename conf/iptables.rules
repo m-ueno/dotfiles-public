@@ -32,31 +32,8 @@
 # Samba
 -A INPUT -p tcp -m tcp --dport 139 -j ACCEPT
 -A INPUT -p udp -m udp --dport 137:138 -j ACCEPT
-#-A INPUT -p tcp --dport 445 -j ACCEPT # for Win2k/XP
 
-# RDP
--A INPUT -p tcp -m tcp --dport 3389 -j ACCEPT
-
-# ssh reverse tunnels
--A INPUT -p tcp -m tcp --dport 20001:20023 -j ACCEPT
-
-#------------------------------
-## mosh [UDP]
--A INPUT -p udp --dport 60000:61000 -j ACCEPT
-## Jenkins
 -A INPUT -p tcp --dport 8080 -j ACCEPT
-## Ruby
--A INPUT -p tcp --dport 3000 -j ACCEPT
--A INPUT -p tcp --dport 4000 -j ACCEPT
--A INPUT -p tcp --dport 9292 -j ACCEPT
-## ngIRCd
-# -A INPUT -p tcp --dport 6667:6669 -j ACCEPT
-## vSphere
-# -A INPUT -p tcp --dport 902:903 -j ACCEPT
-## commafeed
-# -A INPUT -p tcp --dport 8082 -j ACCEPT
-# -A INPUT -p tcp --dport 8043 -j ACCEPT
-
 
 #------------------------------
 # Reject all other inbound - default deny unless explicitly allowed policy:
