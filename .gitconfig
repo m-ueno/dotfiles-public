@@ -33,4 +33,4 @@
 [push]
     default = matching
 [core]
-    excludesfile = /home/masaru/.gitignore
+    excludesfile = $HOME/.gitignore_global
