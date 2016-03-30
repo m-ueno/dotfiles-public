@@ -1,0 +1,3 @@
+# follow jonas/tig/wiki/Bindings
+
+bind status P !git add --patch %(file)

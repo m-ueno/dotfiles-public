@@ -1,6 +1,6 @@
-HISTFILE=~/.hist-zsh
-HISTSIZE=100000
-SAVEHIST=100000
+export HISTFILE=~/.hist-zsh
+export HISTSIZE=100000
+export SAVEHIST=100000
 bindkey -e # emacs
 
 autoload -U compinit
@@ -19,7 +19,9 @@ bindkey ' ' magic-space
 alias -g H='| head'
 alias -g G='| grep'
 alias -g Gi='| grep -i'
+alias -g J='| python -mjson.tool'
 alias -g L='| less -R'
+alias -g P='| peco'
 alias -g T='| tail'
 alias -g TE='| tee tee.log'
 
@@ -37,7 +39,6 @@ case $(uname -s) in
         ;;
 esac
 
-# Arch Linux
 alias yc='yaourt -Sc'
 alias ycc='yaourt -Scc'
 alias yh='echo_yaourt_aliases'
@@ -57,8 +58,6 @@ echo_yaourt_aliases(){
     alias ys='yaourt -Ss'
     alias yy='yaourt -Sy'
     alias yyy='sudo rm /var/lib/pacman/db.lck'"
-
-    #    echo "yi: install (yaourt -S)\nys: update&search (yaourt -Ss)\nyy: update&install (yaourt -Sy)\nyc: clean (yaourt -Sc)\nycc: clean (yaourt -Scc)\nremove : yaourt -R"
 }
 
 export GREP_OPTIONS='--color=always'
@@ -83,10 +82,7 @@ zstyle ':completion:*:date:*' fake \
     '+%Y-%m-%d:西暦-月-日' \
     '+%Y/%m/%d %H\:%M\:%S: 西暦/月/日 時\:分\:秒'
 zstyle ':completion:*:date:*' menu yes select=2
-zstyle ':completion:*' hosts \
-    proxy.kuins.net:8080 \
-    182.163.78.215
-#compdef for gisty
+
 #zstyle ':completion:*:gisty:*' list help post sync_delete sync about private_post pull_all
 #   '*:tail:_files'
 
@@ -118,6 +114,7 @@ setopt brace_ccl # enable expand {a-c} => a b c
 setopt equals # expand: =command => `which command`
 setopt autopushd # pushd by 'cd -[tab]
 
+export DOTFILES=~/.dotfiles
 export EDITOR="vim"
 export LESS='-R'
 export PATH=/usr/local/bin:"$PATH":~/bin
@@ -127,18 +124,10 @@ export GISTY_DIR="$HOME/dev/gists"
 export GISTY_SSL_VERIFY="NONE"
 export PAGER=less
 
-proxy(){
-    export http_proxy='http://proxy.kuins.net:8080'
-    export https_proxy='http://proxy.kuins.net:8080'
-    export ftp_proxy='http://proxy.kuins.net:8080'
-    echo 'use_proxy=on' > ~/.wgetrc
+function mkcd() {
+    mkdir -p $@ && cd $@
 }
-unproxy(){
-    unset http_proxy
-    unset https_proxy
-    unset ftp_proxy
-    echo 'use_proxy=off' > ~/.wgetrc
-}
+
 function google() {
     local str opt
     if [ $# != 0 ]; then # 引数が存在すれば
@@ -189,7 +178,6 @@ ex () {
     fi
 }
 
-
 ## http://d.hatena.ne.jp/mollifier/20100906
 # gitの作業ディレクトリに変更があるか。
 if is-at-least 4.3.10; then
@@ -213,15 +201,20 @@ if is-at-least 4.3.10; then
     zstyle ':vcs_info:git:*' actionformats '(%s)-[%b|%a] %c%u'
 
     function _update_vcs_info_msg() {
-    psvar=()
-    LANG=en_US.UTF-8 vcs_info
-    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-}
-add-zsh-hook precmd _update_vcs_info_msg
-RPROMPT="%1(v|%F{green}%1v%f|)"
+        psvar=()
+        LANG=en_US.UTF-8 vcs_info
+        [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+    }
+    add-zsh-hook precmd _update_vcs_info_msg
+    RPROMPT="%1(v|%F{green}%1v%f|)"
 fi
 
 function ta(){
+    if [ $TERM = "screen" ] ; then
+        echo "nop"
+        return
+    fi
+
     exists=`tmux ls|grep window|wc -l`
     if [ $exists -eq 0 ] ; then
         tmux
@@ -235,6 +228,77 @@ function ta(){
 # Enable C-s after C-r (search-history-backward)
 stty stop undef
 
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
-[ -f ~/perl5/perlbrew/etc/bashrc ] && source ~/perl5/perlbrew/etc/bashrc
+# peco
 
+function peco-select-history() {
+    typeset tac
+    if which tac > /dev/null; then
+        tac=tac
+    else
+        tac='tail -r'
+    fi
+    BUFFER=$(fc -l -n 1 | eval $tac | peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle redisplay
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
+
+function peco-pkill() {
+    for pid in `ps aux | peco | awk '{ print $2 }'`
+    do
+        kill $pid
+        echo "Killed ${pid}"
+    done
+}
+alias pk="peco-pkill"
+
+## tmux (auto start)
+is_screen_running() {
+  [ ! -z "$WINDOW" ]
+}
+
+is_tmux_running() {
+  [ ! -z "$TMUX" ]
+}
+
+is_screen_or_tmux_running() {
+  is_screen_running || is_tmux_running
+}
+
+shell_has_started_interactively() {
+  [ ! -z "$PS1" ]
+}
+
+resolve_alias() {
+  cmd="$1"
+  while
+    whence "$cmd" >/dev/null 2>/dev/null \
+    && [ "$(whence "$cmd")" != "$cmd" ]
+  do
+    cmd=$(whence "$cmd")
+  done
+  echo "$cmd"
+}
+
+if ! is_screen_or_tmux_running && shell_has_started_interactively; then
+  for cmd in tmux tscreen screen; do
+    if whence $cmd >/dev/null 2>/dev/null; then
+      # $(resolve_alias "$cmd")
+      # Fix to show CJK chars on MSYS2
+      $(resolve_alias "$cmd") -u
+      break
+    fi
+  done
+fi
+
+[ -f $DOTFILES/zsh/http_status_codes.zsh ] && source $DOTFILES/zsh/http_status_codes.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source $DOTFILES/zsh/zplug-init.zsh
+
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+# profiling
+if (which zprof > /dev/null) ;then
+    zprof | less
+fi

@@ -1,5 +1,10 @@
 # cf. Debian Wiki
 # date: 2013-03-07
+
+# Usage
+#   iptables-restore < /path/to/file
+#   iptables-save > another_file
+
 *filter
 
 # Allows all loopback (lo0) traffic and drop all traffic to 127/8 that doesn't use lo0

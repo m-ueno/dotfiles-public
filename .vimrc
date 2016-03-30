@@ -1,52 +1,49 @@
 set nocompatible
->
-if version >= 700 " version 7.00 or upper
-    """ vundle
-    filetype off
-    set rtp+=~/.vim/bundle/vundle/
-    call vundle#rc()
-    " My Bundles here:
-    Bundle 'gmarik/vundle'
 
-    Bundle 'Gist.vim'
-"    Bundle 'Indent-Guides'
-    Bundle 'itchyny/calendar.vim'
-    Bundle 'itchyny/lightline.vim'
-    Bundle 'ShowMarks7'
-    Bundle 'The-NERD-Commenter'
-    Bundle 'buftabs'
-    Bundle 'emacscommandline'
-    Bundle 'fugitive.vim'
-    Bundle 'git-cheat'
-    Bundle 'matchit.zip'
-    Bundle 'neocomplcache'
-    Bundle 'surround.vim'
-    Bundle 'unite-colorscheme'
-    Bundle 'unite.vim'
-    Bundle 'quickrun.vim'
-    Bundle 'surround.vim'
+call plug#begin('~/.vim/plugged')
+"Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-sensible'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'airblade/vim-gitgutter'
+Plug 'altercation/vim-colors-solarized'
+"Plug 'Gist.vim'
+"Plug 'itchyny/calendar.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'ShowMarks7'
+Plug 'The-NERD-Commenter'
+Plug 'buftabs'
+Plug 'emacscommandline'
+"Plug 'fugitive.vim'
+"Plug 'git-cheat'
+Plug 'matchit.zip'
+"Plug 'neocomplcache'
+Plug 'nginx.vim'
+"Plug 'surround.vim'
+"Plug 'quickrun.vim'
+"Plug 'Shougo/unite.vim'
+"Plug 'unite-colorscheme'
+"Plug 'Shougo/vimfiler'
+"Plug 'Shougo/vimproc.vim'
+"
+Plug 'haya14busa/incsearch.vim'
+"Plug 'kien/ctrlp.vim'
+Plug 'glidenote/memolist.vim'
+"
+let g:showmarks_include="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
-    Bundle 'Shougo/vimfiler'
+Plug 'vim-scripts/vim-auto-save'
+let g:auto_save = 1
 
-    " load settings of plugins which is hundled by vundle
-    for f in split(glob('~/.vimfiles/*.vim'), '\n')
-        exe 'source' f
-    endfor
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
-    let g:showmarks_include="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+call plug#end()
 
-    let g:indent_guides_enable_on_vim_startup = 1
-    let g:indent_guides_guide_size = 1
-    let g:indent_guides_color_change_percent = 30
-    let g:indent_guides_start_level = 2
+filetype plugin indent on
 
-endif
-
-filetype plugin indent on     " required!
-
-set autochdir
+" set autochdir
 set autoindent    " always set autoindenting on
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
+set completeopt=menu   " default: preview,menuone
 set copyindent    " copy the previous indentation on autoindenting
 set cursorline
 set expandtab
@@ -67,7 +64,7 @@ set tabstop=4     " a tab is four spaces
 set wrap
 
 " itchyny
-set laststatus=2 
+set laststatus=2
 set t_Co=256
 
 set history=1000         " remember more commands and search history
@@ -85,8 +82,12 @@ set noswapfile
 
 " Look and Feel
 syntax on
-colorscheme elflord
-highlight CursorLine guibg=lightblue ctermbg=DarkGray
+set background=dark
+
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+
+" highlight CursorLine guibg=lightblue ctermbg=DarkGray
 
 " F5: command history
 " F6: search history
@@ -95,6 +96,7 @@ nnoremap <F6> <Esc>q/
 nnoremap q: <Nop>
 nnoremap q/ <Nop>
 nnoremap q? <Nop>
+nnoremap qq <Nop>
 
 " nnoremap q <NUL>
 
@@ -129,11 +131,11 @@ noremap <silent> <F4> :Unite buffer<CR>
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 
-if !exists("W")
+if !exists(":W")
     command W w !sudo tee % >/dev/null
 endif
 
-" Execute python script C-P 
+" Execute python script C-P
 "function! s:ExecPy()
 "    exe "!" . &ft . " %"
 ":endfunction
@@ -166,11 +168,61 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 "" 4.作業効率を改善する
 nnoremap <ESC><ESC> :nohlsearch<CR>
 
-" lightline
+" itchyny/lightline
 let g:lightline = {
       \ 'colorscheme': 'wombat'
       \ }
 
-
 " itchyny/calendar
 let g:calendar_google_calendar = 1
+
+au BufRead,BufNewFile /etc/nginx/* set ft=nginx
+autocmd BufNewFile *.py 0r $HOME/.vim/template/template.py
+autocmd BufNewFile *.html 0r $HOME/.vim/template/template.html
+
+" `K` to view help
+augroup set_kp_help
+    autocmd FileType vim setlocal keywordprg=:help
+augroup END
+
+" incsearch.vim: incrementally highlights ALL pattern matches
+"map /  <Plug>(incsearch-forward)
+"map ?  <Plug>(incsearch-backward)
+"map g/ <Plug>(incsearch-stay)
+
+let g:incsearch#auto_nohlsearch = 1
+nmap n  <Plug>(incsearch-nohl-n)
+nmap N  <Plug>(incsearch-nohl-N)
+nmap *  <Plug>(incsearch-nohl-*)
+
+" NERDCommenter : コメント挿入削除トグル
+"" トグル : <Leader>c<Space>
+"" 末尾に挿入: <Leader>cA
+
+"" /**/ ではなく /*  */ にする
+let NERDSpaceDelims = 1
+"" 警告の抑制
+let NERDShutUp = 1
+
+nmap #  <Plug>(incsearch-nohl-#)
+nmap g* <Plug>(incsearch-nohl-g*)
+nmap g# <Plug>(incsearch-nohl-g#)
+
+" ctrlp: Fuzzy file, buffer, mru, tag, etc finder.
+let g:ctrlp_map = '<C-S-P>'
+let g:ctrlp_use_migemo = 0
+let g:ctrlp_clear_cache_on_exit = 0   " 終了時キャッシュをクリアしない
+let g:ctrlp_mruf_max            = 500 " MRUの最大記録数
+let g:ctrlp_open_new_file       = 1   " 新規ファイル作成時にタブで開く
+
+" memoist: 日付＋タイトルのメモファイルを作成
+let g:memolist_path = "~/Dropbox/Documents/memo"
+nnoremap <Leader>mn  :MemoNew<CR>
+nnoremap <Leader>ml  :MemoList<CR>
+nnoremap <Leader>mg  :MemoGrep<CR>
+
+colorscheme solarized
+
+if filereadable(expand($HOME.'/.local/.vimrc'))
+  source $HOME/.local/.vimrc
+endif

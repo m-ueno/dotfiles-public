@@ -19,10 +19,15 @@
     unstage = reset HEAD --
     last = log -1 HEAD
     fix = !"git add -u && git commit -m 'fix' && git push"
+[diff]
+    tool = vimdiff
 [url "https://"]
-        insteadOf = git://
+    insteadOf = git://
+[gist.github.com]
+    user = m-ueno
 [github]
     user = m-ueno
-
 [push]
-	default = matching
+    default = matching
+[core]
+    excludesfile = /home/masaru/.gitignore

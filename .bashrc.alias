@@ -1,6 +1,7 @@
 # shell
 alias calc='xcalc'
 #alias cp -r = 'cp -rp'
+alias cls='printf "\033c"'
 alias cx='chmod +x'
 alias crontab='crontab -i'
 alias d0='du -0'
@@ -34,11 +35,7 @@ alias clojure='clj'
 alias gosh='rlwrap gosh'
 alias sbcl='rlwrap sbcl'
 
-# tmux
-alias ta='tmux attach' # pkill stjerm後
-
 ## perl
-alias perl='perl -w'
 alias perldb='rlwrap perl -de1'
 alias perltest='prove -lr t'
 # input/output
@@ -48,3 +45,4 @@ alias perltest='prove -lr t'
 
 # git
 alias gg='git grep -n'
+alias gs='tig status'
