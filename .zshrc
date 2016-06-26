@@ -266,7 +266,16 @@ resolve_alias() {
   echo "$cmd"
 }
 
+exist_tmux() {
+    which tmux >/dev/null 2>&1
+}
+
 tmux_attach_or_launch() {
+    if ! exist_tmux ; then
+        echo tmux is not found... >&2
+        return
+    fi
+
     count=$(tmux ls |wc -l)
     if [ "$count" -eq "0" ] ; then
         # -u flag explicitly informs tmux that UTF-8 is supported.
@@ -277,15 +286,12 @@ tmux_attach_or_launch() {
 }
 
 if ! is_screen_or_tmux_running && shell_has_started_interactively; then
-#  for cmd in tmux tscreen screen; do
     if whence $cmd >/dev/null 2>/dev/null; then
       # $(resolve_alias "$cmd")
       # Fix to show CJK chars on MSYS2
       # $(resolve_alias "$cmd") -u
       tmux_attach_or_launch
-      break
     fi
-#  done
 fi
 
 [ -f $DOTFILES/zsh/http_status_codes.zsh ] && source $DOTFILES/zsh/http_status_codes.zsh
