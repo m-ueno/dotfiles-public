@@ -7,7 +7,6 @@ if version >= 700 " version 7.00 or upper
     call vundle#rc()
     " My Bundles here:
     Bundle 'gmarik/vundle'
-
     Bundle 'Gist.vim'
 "    Bundle 'Indent-Guides'
     Bundle 'itchyny/calendar.vim'
@@ -70,7 +69,7 @@ set tabstop=4     " a tab is four spaces
 set wrap
 
 " itchyny
-set laststatus=2 
+set laststatus=2
 set t_Co=256
 
 set history=1000         " remember more commands and search history
@@ -115,7 +114,6 @@ noremap <C-l> <C-w>l
 noremap <C-p> :bprevious<CR>
 noremap <C-n> :bnext<CR>
 
-
 " Plugin
 noremap <silent> <F3> :call BufferList()<CR>
 "" Unite.vim
@@ -151,6 +149,8 @@ let mapleader=","
 nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
 nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
 
+command E VimFiler
+
 " 文字コードの自動認識
 " from ずんWiki http://www.kawaz.jp/pukiwiki/?vim#content_1_7
 set encoding=utf-8
@@ -174,7 +174,6 @@ let g:lightline = {
       \ 'colorscheme': 'wombat'
       \ }
 
-
 " itchyny/calendar
 let g:calendar_google_calendar = 1
 
@@ -194,5 +193,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_python_python_exec = 'python3'
+"" Syntastic customs
+let g:syntastic_enable_signs=1
+"let g:syntastic_python_python_exec = 'python3'
 
+let g:syntastic_python_flake8_exec = 'python3'
+let g:syntastic_python_flake8_args = ['-m', 'flake8']
