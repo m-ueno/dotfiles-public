@@ -31,3 +31,5 @@
     default = matching
 [core]
     excludesfile = /home/masaru/.gitignore
+[credential]
+	helper = cache --timeout=86400
