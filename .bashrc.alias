@@ -44,4 +44,11 @@ alias perltest='prove -lr t'
 # alias perl_iop='perl -wlp'
 
 # git
+alias g='git'
 alias gg='git grep -n'
+alias gs='tig status'
+alias gss='git status --short --branch'
+alias gh='git help'
+
+alias t='tig'
+alias ta='tig --all'

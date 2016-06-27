@@ -1,11 +1,13 @@
 [user]
-	name = mueno-mba
-    email = dummy@mail.com
+    name = m-ueno
+    email = m-ueno@github.com
 [color]
     diff = auto
     status = auto
     branch = auto
-    ui = true
+    ui = auto
+    interactive = auto
+    grep = auto
 [alias]
     st = !"tig status"
     ci = commit
@@ -19,8 +21,10 @@
     unstage = reset HEAD --
     last = log -1 HEAD
     fix = !"git add -u && git commit -m 'fix' && git push"
+    branch-root = merge-base master HEAD
 [diff]
     tool = vimdiff
+    patience = true
 [url "https://"]
     insteadOf = git://
 [gist.github.com]
@@ -32,4 +36,7 @@
 [core]
     excludesfile = /home/masaru/.gitignore
 [credential]
-	helper = cache --timeout=86400
+    helper = cache --timeout=86400
+    excludesfile = $HOME/.gitignore_global
+[rebase]
+    autosquash = true  # See help rebase
