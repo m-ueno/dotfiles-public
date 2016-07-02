@@ -39,27 +39,6 @@ case $(uname -s) in
         ;;
 esac
 
-alias yc='yaourt -Sc'
-alias ycc='yaourt -Scc'
-alias yh='echo_yaourt_aliases'
-alias yi='yaourt -S'
-alias yr='yaourt -Rs'
-alias ys='yaourt -Ss'
-alias yy='yaourt -Sy'
-alias yyy='sudo rm /var/lib/pacman/db.lck'
-echo_yaourt_aliases(){
-    echo "List of aliases
-    alias yc='yaourt -Sc'
-    alias ycc='yaourt -Scc'
-    alias yh='echo_yaourt_aliases'
-    alias yi='yaourt -S'
-    alias yqo='yaourt -Qo'
-    alias yr='yaourt -R'
-    alias ys='yaourt -Ss'
-    alias yy='yaourt -Sy'
-    alias yyy='sudo rm /var/lib/pacman/db.lck'"
-}
-
 export GREP_OPTIONS='--color=always'
 
 ## common prompt
@@ -209,6 +188,12 @@ if is-at-least 4.3.10; then
     RPROMPT="%1(v|%F{green}%1v%f|)"
 fi
 
+function gittips {
+    cat <<EOH
+  stash save -u,--include-untracked
+EOH
+}
+
 function ta(){
     if [ $TERM = "screen" ] ; then
         echo "nop"
@@ -281,15 +266,32 @@ resolve_alias() {
   echo "$cmd"
 }
 
+exist_tmux() {
+    which tmux >/dev/null 2>&1
+}
+
+tmux_attach_or_launch() {
+    if ! exist_tmux ; then
+        echo tmux is not found... >&2
+        return
+    fi
+
+    count=$(tmux ls |wc -l)
+    if [ "$count" -eq "0" ] ; then
+        # -u flag explicitly informs tmux that UTF-8 is supported.
+        tmux -u
+    else
+        tmux -u attach
+    fi
+}
+
 if ! is_screen_or_tmux_running && shell_has_started_interactively; then
-  for cmd in tmux tscreen screen; do
     if whence $cmd >/dev/null 2>/dev/null; then
       # $(resolve_alias "$cmd")
       # Fix to show CJK chars on MSYS2
-      $(resolve_alias "$cmd") -u
-      break
+      # $(resolve_alias "$cmd") -u
+      tmux_attach_or_launch
     fi
-  done
 fi
 
 [ -f $DOTFILES/zsh/http_status_codes.zsh ] && source $DOTFILES/zsh/http_status_codes.zsh
@@ -299,6 +301,6 @@ source $DOTFILES/zsh/zplug-init.zsh
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 # profiling
-if (which zprof > /dev/null) ;then
+if (which zprof >/dev/null 2>&1) ;then
     zprof | less
 fi

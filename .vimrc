@@ -35,6 +35,7 @@ Plug 'vim-scripts/vim-auto-save'
 let g:auto_save = 1
 
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'fatih/vim-go'
 
 call plug#end()
 
@@ -114,7 +115,6 @@ noremap <C-l> <C-w>l
 noremap <C-p> :bprevious<CR>
 noremap <C-n> :bnext<CR>
 
-
 " Plugin
 noremap <silent> <F3> :call BufferList()<CR>
 "" Unite.vim
@@ -150,6 +150,8 @@ let mapleader=","
 nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
 nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
 
+command E VimFiler
+
 " 文字コードの自動認識
 " from ずんWiki http://www.kawaz.jp/pukiwiki/?vim#content_1_7
 set encoding=utf-8
@@ -179,6 +181,25 @@ let g:calendar_google_calendar = 1
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx
 autocmd BufNewFile *.py 0r $HOME/.vim/template/template.py
 autocmd BufNewFile *.html 0r $HOME/.vim/template/template.html
+
+" Statusline
+"" Syntastic recommended settings
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"" Syntastic customs
+let g:syntastic_enable_signs=1
+"let g:syntastic_python_python_exec = 'python3'
+
+let g:syntastic_python_flake8_exec = 'python3'
+let g:syntastic_python_flake8_args = ['-m', 'flake8']
 
 " `K` to view help
 augroup set_kp_help
