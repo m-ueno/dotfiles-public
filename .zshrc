@@ -39,8 +39,6 @@ case $(uname -s) in
         ;;
 esac
 
-export GREP_OPTIONS='--color=always'
-
 ## common prompt
 # PROMPT="%m:%n%% "
 PROMPT=$'%{\e[$[31+RANDOM%6]m%}%m:%n%{\e[m%}%% '
