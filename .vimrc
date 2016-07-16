@@ -262,7 +262,7 @@ nnoremap <Leader>ml  :MemoList<CR>
 nnoremap <Leader>mg  :MemoGrep<CR>
 
 if has("mac")
-    colorscheme solarized
+    colorscheme elflord
 elseif has("unix")
     " unix (linux?)
     colorscheme elflord
