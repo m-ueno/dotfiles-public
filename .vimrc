@@ -58,12 +58,12 @@ set list listchars=tab:>-,trail:_
 set nowrap        " don't wrap lines
 set number        " always show line numbers
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
-set shiftwidth=4  " number of spaces to use for autoindenting
+set shiftwidth=2  " number of spaces to use for autoindenting
 set showmatch     " set show matching parenthesis
 set smartcase     " ignore case if search pattern is all lowercase, case-sensitive otherwise
 "set smartindent  " smart indent was replaced by cindent. just use filetype indent on
 set smarttab      " insert tabs on the start of a line according to shiftwidth, not tabstop
-set tabstop=4     " a tab is four spaces
+set tabstop=2     " a tab is two spaces
 set wrap
 
 " itchyny
