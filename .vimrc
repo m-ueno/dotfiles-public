@@ -151,8 +151,6 @@ let mapleader=","
 nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
 nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
 
-command E VimFiler
-
 " 文字コードの自動認識
 " from ずんWiki http://www.kawaz.jp/pukiwiki/?vim#content_1_7
 set encoding=utf-8
@@ -285,3 +283,4 @@ endif
 if filereadable(expand($HOME.'/.local/.vimrc'))
   source $HOME/.local/.vimrc
 endif
+
