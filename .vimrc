@@ -18,6 +18,7 @@ Plug 'emacscommandline'
 Plug 'matchit.zip'
 "Plug 'neocomplcache'
 Plug 'nginx.vim'
+Plug 'scrooloose/syntastic'
 "Plug 'surround.vim'
 "Plug 'quickrun.vim'
 "Plug 'Shougo/unite.vim'
@@ -191,8 +192,13 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+
+let g:syntastic_mode_map = {
+            \ "mode": "passive",
+            \ "active_filetypes": [],
+            \ "passive_filetypes": ["ruby", "python"] }
 
 "" Syntastic customs
 let g:syntastic_enable_signs=1
@@ -200,6 +206,8 @@ let g:syntastic_enable_signs=1
 
 let g:syntastic_python_flake8_exec = 'python3'
 let g:syntastic_python_flake8_args = ['-m', 'flake8']
+
+let g:syntastic_ruby_checkers = ['rubocop']
 
 " vim-go
 
