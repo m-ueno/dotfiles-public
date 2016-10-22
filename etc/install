@@ -1,0 +1,67 @@
+#!/bin/bash -xeu
+
+: ${DOTHOME:=$HOME/.dotfiles}
+
+DOTFILES_GITHUB="https://github.com/m-ueno/dotfiles-public"
+
+is_exists() {
+  which "$1" >/dev/null 2>&1
+  return $?
+}
+
+dotfiles_download() {
+  if [ -d "$DOTHOME" ]; then
+    echo "$DOTHOME: already exists"
+    exit 1
+  fi
+
+  echo "Downloading dotfiles..."
+
+  if is_exists "git"; then
+    # --recursive equals to ...
+    # git submodule init
+    # git submodule update
+    git clone --recursive "$DOTFILES_GITHUB" "$DOTHOME"
+
+  elif is_exists "curl" || is_exists "wget"; then
+    local tarball="https://github.com/m-ueno/dotfiles-public/archive/master.zip"
+    if is_exists "curl"; then
+      curl -L "$tarball"
+
+    elif is_exists "wget"; then
+      wget -O - "$tarball"
+
+    fi | tar xvz
+    if [ ! -d dotfiles-public-master ]; then
+      echo "dotfiles-master: not found"
+      exit 1
+    fi
+    command mv -f dotfiles-public-master "$DOTHOME"
+
+  else
+    echo "curl or wget required"
+    exit 1
+  fi
+}
+
+dotfiles_deploy() {
+  # Create symbolic links from homedir to DOTHOME
+  cd ${DOTHOME}
+  ./etc/deploy
+}
+
+dotfiles_initialize(){
+  # Complete installation process
+  vim -c PlugInstall -c qall
+
+  exec "${SHELL:-/bin/zsh}"
+}
+
+dotfiles_install() {
+  dotfiles_download &&
+  dotfiles_deploy &&
+  dotfiles_initialize
+}
+
+dotfiles_install
+
