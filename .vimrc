@@ -62,6 +62,8 @@ set smartcase     " ignore case if search pattern is all lowercase, case-sensiti
 "set smartindent  " smart indent was replaced by cindent. just use filetype indent on
 set smarttab      " insert tabs on the start of a line according to shiftwidth, not tabstop
 set tabstop=4     " a tab is four spaces
+set undofile
+set undodir=/home/masaru/.vimundo/
 set wrap
 
 " itchyny
