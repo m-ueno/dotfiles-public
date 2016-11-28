@@ -1,0 +1,12 @@
+#!/bin/bash -xeu
+
+# just fetch
+
+: ${DOTHOME:=$HOME/.dotfiles}
+
+if [ ! -d ${DOTHOME} ] ; then
+  git clone https://github.com/m-ueno/dotfiles-public ${DOTHOME}
+  cd ${DOTHOME}
+  git submodule update --init
+fi
+

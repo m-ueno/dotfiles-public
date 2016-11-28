@@ -1,0 +1,9 @@
+#!/bin/bash -eu
+
+: ${DOTHOME:=$HOME/.dotfiles}
+
+DOTFILES=$(find ${DOTHOME} -maxdepth 1 -name ".*" ! -name .gitignore ! -name .gitmodules ! -name .git| sort)
+
+for path in ${DOTFILES}; do
+  ln -sv $path ~/ || true
+done

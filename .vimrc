@@ -17,7 +17,9 @@ Plug 'emacscommandline'
 "Plug 'git-cheat'
 Plug 'matchit.zip'
 "Plug 'neocomplcache'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'nginx.vim'
+Plug 'scrooloose/syntastic'
 "Plug 'surround.vim'
 "Plug 'quickrun.vim'
 "Plug 'Shougo/unite.vim'
@@ -56,12 +58,12 @@ set list listchars=tab:>-,trail:_
 set nowrap        " don't wrap lines
 set number        " always show line numbers
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
-set shiftwidth=4  " number of spaces to use for autoindenting
+set shiftwidth=2  " number of spaces to use for autoindenting
 set showmatch     " set show matching parenthesis
 set smartcase     " ignore case if search pattern is all lowercase, case-sensitive otherwise
 "set smartindent  " smart indent was replaced by cindent. just use filetype indent on
 set smarttab      " insert tabs on the start of a line according to shiftwidth, not tabstop
-set tabstop=4     " a tab is four spaces
+set tabstop=2     " a tab is two spaces
 set undofile
 set undodir=/home/masaru/.vimundo/
 set wrap
@@ -152,8 +154,6 @@ let mapleader=","
 nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
 nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
 
-command E VimFiler
-
 " 文字コードの自動認識
 " from ずんWiki http://www.kawaz.jp/pukiwiki/?vim#content_1_7
 set encoding=utf-8
@@ -193,8 +193,13 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+
+let g:syntastic_mode_map = {
+            \ "mode": "passive",
+            \ "active_filetypes": [],
+            \ "passive_filetypes": ["ruby", "python"] }
 
 "" Syntastic customs
 let g:syntastic_enable_signs=1
@@ -202,6 +207,8 @@ let g:syntastic_enable_signs=1
 
 let g:syntastic_python_flake8_exec = 'python3'
 let g:syntastic_python_flake8_args = ['-m', 'flake8']
+
+let g:syntastic_ruby_checkers = ['rubocop']
 
 " vim-go
 
@@ -264,7 +271,7 @@ nnoremap <Leader>ml  :MemoList<CR>
 nnoremap <Leader>mg  :MemoGrep<CR>
 
 if has("mac")
-    colorscheme solarized
+    colorscheme elflord
 elseif has("unix")
     " unix (linux?)
     colorscheme elflord
@@ -279,3 +286,4 @@ endif
 if filereadable(expand($HOME.'/.local/.vimrc'))
   source $HOME/.local/.vimrc
 endif
+
