@@ -1,4 +1,5 @@
 # shell
+alias be='bundle exec'
 alias calc='xcalc'
 #alias cp -r = 'cp -rp'
 alias cls='printf "\033c"'
