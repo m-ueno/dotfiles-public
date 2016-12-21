@@ -19,7 +19,8 @@ Plug 'matchit.zip'
 "Plug 'neocomplcache'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'nginx.vim'
-Plug 'scrooloose/syntastic'
+Plug 'ngmy/vim-rubocop'
+"Plug 'scrooloose/syntastic'
 "Plug 'surround.vim'
 "Plug 'quickrun.vim'
 "Plug 'Shougo/unite.vim'
@@ -35,6 +36,7 @@ let g:showmarks_include="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
 Plug 'vim-scripts/vim-auto-save'
 let g:auto_save = 1
+let g:auto_save_in_insert_mode = 0
 
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'fatih/vim-go'
