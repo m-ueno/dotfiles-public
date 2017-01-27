@@ -30,7 +30,8 @@ Plug 'scrooloose/syntastic'
 Plug 'haya14busa/incsearch.vim'
 "Plug 'kien/ctrlp.vim'
 Plug 'glidenote/memolist.vim'
-"
+Plug 'tell-k/vim-autopep8'
+
 let g:showmarks_include="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
 Plug 'vim-scripts/vim-auto-save'
