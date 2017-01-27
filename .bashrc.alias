@@ -53,3 +53,13 @@ alias gh='git help'
 
 alias t='tig'
 alias ta='tig --all'
+alias tg='tig grep'
+
+# docker
+alias dcup='docker-compose up -d && docker-compose logs -f'
+alias d='docker'
+alias ds='docker ps'
+alias da='docker ps -a'
+alias drun='docker run -d --restart=always'
+alias drunt='drun --rm'
+

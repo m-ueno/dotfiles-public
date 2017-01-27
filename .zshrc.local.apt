@@ -1,9 +1,9 @@
+alias apt='sudo apt'
 alias apt-get='sudo apt-get'
 alias aptitude='sudo aptitude'
-alias yy='apt-get update'
-alias au='apt-get update'
-alias ai='apt-get install'
+alias yy='apt update'
+alias au='apt update'
+alias ai='apt install'
 alias as='apt-cache search'
-alias ack='ack-grep'
 
 export PATH=$PATH:/sbin:/usr/sbin
