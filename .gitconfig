@@ -22,6 +22,7 @@
     last = log -1 HEAD
     fix = !"git add -u && git commit -m 'fix' && git push"
     branch-root = merge-base master HEAD
+    rebase-branch = "!git rebase -i `git merge-base master HEAD`"
 [diff]
     tool = vimdiff
     patience = true
