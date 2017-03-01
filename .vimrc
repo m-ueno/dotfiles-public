@@ -33,6 +33,14 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'glidenote/memolist.vim'
 Plug 'tell-k/vim-autopep8'
 
+" https://github.com/vim-tw/vim-tips
+Plug 'elzr/vim-json'
+Plug 'chrisbra/csv.vim'
+
+let g:loaded_matchparen = 1
+Plug 'itchyny/vim-parenmatch'
+Plug 'itchyny/vim-cursorword'
+
 let g:showmarks_include="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
 Plug 'vim-scripts/vim-auto-save'
@@ -150,6 +158,7 @@ endif
 "autocmd FileType python map <silent> <C-P> :call <SID>ExecPy()<CR>
 
 inoremap <F10> <code></code> <Esc>2F>a
+inoremap <F4> import code; code.interact(local=dict(globals(), **locals()))<Esc>
 
 """ http://nvie.com/posts/how-i-boosted-my-vim
 " change the mapleader from \ to ,
