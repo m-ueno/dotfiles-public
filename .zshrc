@@ -224,8 +224,6 @@ function peco-select-history() {
     CURSOR=$#BUFFER
     zle redisplay
 }
-zle -N peco-select-history
-bindkey '^r' peco-select-history
 
 function peco-pkill() {
     for pid in `ps aux | peco | awk '{ print $2 }'`
