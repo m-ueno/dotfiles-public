@@ -200,9 +200,9 @@ function ta(){
 
     exists=`tmux ls|grep window|wc -l`
     if [ $exists -eq 0 ] ; then
-        tmux
+        tmux -2 -u
     elif [ $exists -gt 0 ] ; then
-        tmux attach -d
+        tmux -2 -u attach -d
     fi
 }
 # zsh-competions
