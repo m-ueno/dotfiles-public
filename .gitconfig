@@ -9,6 +9,7 @@
     interactive = auto
     grep = auto
 [alias]
+    addp = add -p
     st = !"tig status"
     ci = commit
     br = branch
