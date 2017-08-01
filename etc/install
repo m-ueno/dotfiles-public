@@ -24,7 +24,7 @@ dotfiles_download() {
     git clone --recursive "$DOTFILES_GITHUB" "$DOTHOME"
 
   elif is_exists "curl" || is_exists "wget"; then
-    local tarball="https://github.com/m-ueno/dotfiles-public/archive/master.zip"
+    local tarball="https://github.com/m-ueno/dotfiles-public/archive/master.tar.gz"
     if is_exists "curl"; then
       curl -L "$tarball"
 
