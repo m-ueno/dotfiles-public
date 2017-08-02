@@ -1,3 +1,5 @@
+export TERM=screen-256color
+
 export HISTFILE=~/.hist-zsh
 export HISTSIZE=100000
 export SAVEHIST=100000
@@ -193,11 +195,6 @@ EOH
 }
 
 function ta(){
-    if [ $TERM = "screen" ] ; then
-        echo "nop"
-        return
-    fi
-
     exists=`tmux ls|grep window|wc -l`
     if [ $exists -eq 0 ] ; then
         tmux -2 -u
@@ -210,6 +207,9 @@ function ta(){
 #
 # Enable C-s after C-r (search-history-backward)
 stty stop undef
+
+# Report CPU usage for commands running longer than 10 seconds
+REPORTTIME=10
 
 # peco
 
