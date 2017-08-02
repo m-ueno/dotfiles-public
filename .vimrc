@@ -32,6 +32,7 @@ Plug 'haya14busa/incsearch.vim'
 "Plug 'kien/ctrlp.vim'
 Plug 'glidenote/memolist.vim'
 Plug 'tell-k/vim-autopep8'
+Plug 'vim-flake8'
 
 " https://github.com/vim-tw/vim-tips
 Plug 'elzr/vim-json'
@@ -59,7 +60,6 @@ set autoindent    " always set autoindenting on
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set completeopt=menu   " default: preview,menuone
 set copyindent    " copy the previous indentation on autoindenting
-set cursorline
 set expandtab
 set hidden
 set hlsearch      " highlight search terms
@@ -222,6 +222,10 @@ let g:syntastic_python_flake8_args = ['-m', 'flake8']
 
 let g:syntastic_ruby_checkers = ['rubocop']
 
+"" python
+let g:flake8_show_in_gutter = 1
+let g:flake8_show_in_file = 1
+let g:flake8_ignore="E501,W293"
 " vim-go
 
 "" syntax-highlighting for Functions, Methods and Structs
