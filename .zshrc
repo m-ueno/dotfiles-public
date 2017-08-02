@@ -266,9 +266,18 @@ exist_tmux() {
     which tmux >/dev/null 2>&1
 }
 
+is_inside_ide() {
+  ps -p $PPID | grep -q java
+}
+
 tmux_attach_or_launch() {
     if ! exist_tmux ; then
         echo tmux is not found... >&2
+        return
+    fi
+
+    if is_inside_ide ; then
+        echo hello IDE
         return
     fi
 
