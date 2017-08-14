@@ -1,10 +1,12 @@
 source $DOTFILES/zplug/init.zsh
 
+# common settings
 zplug "zsh-users/zsh-autosuggestions", if:'[[ ! $OS == "Windows_NT" ]]'
 zplug "zsh-users/zsh-syntax-highlighting, defer:2", if:'[[ ! $OS == "Windows_NT" ]]'
 zplug "zsh-users/zaw, defer:2", if:'[[ ! $OS == "Windows_NT" ]]'
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-history-substring-search"
+zplug "modules/prompt", from:prezto
 
 # zplug update --self
 zplug check || zplug install
