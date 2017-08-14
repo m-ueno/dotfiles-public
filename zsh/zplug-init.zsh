@@ -8,6 +8,9 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "modules/prompt", from:prezto
 
+# settings for specific environment
+zplug "$DOTFILES/zsh", use:"pacman.zsh", from:local, if:"[[ $(grep ID=arch /etc/os-release) ]]"
+
 # zplug update --self
 zplug check || zplug install
 zplug load
