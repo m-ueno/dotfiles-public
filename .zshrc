@@ -263,7 +263,6 @@ if ! is_screen_or_tmux_running && shell_has_started_interactively; then
     fi
 fi
 
-[ -f $DOTFILES/zsh/http_status_codes.zsh ] && source $DOTFILES/zsh/http_status_codes.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source $DOTFILES/zsh/zplug-init.zsh
 
