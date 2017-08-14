@@ -89,7 +89,7 @@ setopt auto_menu
 setopt auto_param_slash
 setopt brace_ccl # enable expand {a-c} => a b c
 setopt equals # expand: =command => `which command`
-setopt autopushd # pushd by 'cd -[tab]
+setopt autopushd # pushd by cd -[tab]
 
 export DOTFILES=~/.dotfiles
 export EDITOR="vim"
