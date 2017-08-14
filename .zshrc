@@ -192,19 +192,6 @@ function gittips {
 EOH
 }
 
-function ta(){
-    if [ $TERM = "screen" ] ; then
-        echo "nop"
-        return
-    fi
-
-    exists=`tmux ls|grep window|wc -l`
-    if [ $exists -eq 0 ] ; then
-        tmux -2 -u
-    elif [ $exists -gt 0 ] ; then
-        tmux -2 -u attach -d
-    fi
-}
 # zsh-competions
 # fpath=(/usr/local/share/zsh-completions $fpath)
 #
