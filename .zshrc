@@ -70,7 +70,7 @@ setopt auto_cd auto_name_dirs auto_pushd # $cd - [tab]
 setopt extended_history hist_ignore_dups hist_ignore_space prompt_subst
 #setopt extended_glob
 setopt list_types no_beep always_last_prompt
-setopt cdable_vars sh_word_split auto_param_keys pushd_ignore_dups
+setopt cdable_vars auto_param_keys pushd_ignore_dups
 setopt noclobber # prevents you from accidentally overwriting an existing file.
 
 # Chapter3. History
