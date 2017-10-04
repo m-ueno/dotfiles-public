@@ -37,6 +37,8 @@ Plug 'glidenote/memolist.vim'
 Plug 'tell-k/vim-autopep8'
 Plug 'vim-flake8'
 
+Plug 'junegunn/vim-easy-align'
+
 " https://github.com/vim-tw/vim-tips
 Plug 'elzr/vim-json'
 Plug 'chrisbra/csv.vim'
@@ -53,6 +55,10 @@ let g:auto_save_in_insert_mode = 0
 
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'fatih/vim-go'
+
+if executable('elixir')
+  Plug 'elixir-editors/vim-elixir'
+endif
 
 call plug#end()
 
