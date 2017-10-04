@@ -1,3 +1,5 @@
+export TERM=screen-256color
+
 export HISTFILE=~/.hist-zsh
 export HISTSIZE=100000
 export SAVEHIST=100000
@@ -198,6 +200,32 @@ EOH
 # Enable C-s after C-r (search-history-backward)
 stty stop undef
 
+# Report CPU usage for commands running longer than 10 seconds
+REPORTTIME=10
+
+# peco
+
+function peco-select-history() {
+    typeset tac
+    if which tac > /dev/null; then
+        tac=tac
+    else
+        tac='tail -r'
+    fi
+    BUFFER=$(fc -l -n 1 | eval $tac | peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle redisplay
+}
+
+function peco-pkill() {
+    for pid in `ps aux | peco | awk '{ print $2 }'`
+    do
+        kill $pid
+        echo "Killed ${pid}"
+    done
+}
+alias pk="peco-pkill"
+
 ## tmux (auto start)
 is_screen_running() {
   [ ! -z "$WINDOW" ]
@@ -264,6 +292,9 @@ if ! is_screen_or_tmux_running && shell_has_started_interactively; then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.asdf/asdf.sh ] && source $HOME/.asdf/asdf.sh
+[ -f $HOME/.asdf/completions/asdf.bash ] && source $HOME/.asdf/completions/asdf.bash
+
 source $DOTFILES/zsh/zplug-init.zsh
 
 [ -f $HOME/.asdf/asdf.sh ] && source $HOME/.asdf/asdf.sh
