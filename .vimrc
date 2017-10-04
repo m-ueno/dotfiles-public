@@ -55,18 +55,26 @@ let g:showmarks_include="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
 Plug 'vim-scripts/vim-auto-save'
 let g:auto_save = 1
+let g:auto_save_no_updatetime = 200  " do not change the 'updatetime' option
 let g:auto_save_in_insert_mode = 0
 
 if executable('go')
   " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
   Plug 'fatih/vim-go'
+  Plug 'nsf/gocode', {'rtp': 'nvim/'}
 endif
 
 if executable('elixir')
   Plug 'elixir-editors/vim-elixir'
 endif
 
+Plug 'scrooloose/nerdtree'
+map <F6> :NERDTreeToggle<CR>
+Plug 'majutsushi/tagbar'
+map <F7> :TagbarToggle<CR>
+
 call plug#end()
+
 
 filetype plugin indent on
 
@@ -122,8 +130,8 @@ let g:solarized_contrast = "high"
 
 " F5: command history
 " F6: search history
-nnoremap <F5> <Esc>q:
-nnoremap <F6> <Esc>q/
+" nnoremap <F5> <Esc>q:
+" nnoremap <F6> <Esc>q/
 nnoremap q: <Nop>
 nnoremap q/ <Nop>
 nnoremap q? <Nop>
@@ -256,7 +264,7 @@ let g:go_fmt_command = "goimports"
 "" By default vim-go shows errors for the fmt command, to disable it:
 let g:go_fmt_fail_silently = 1
 "" Disable auto fmt on save:
-let g:go_fmt_autosave = 0
+let g:go_fmt_autosave = 1
 "" Disable opening browser after posting your snippet to play.golang.org:
 let g:go_play_open_browser = 0
 
