@@ -41,6 +41,8 @@
     helper = cache --timeout=86400
 [rebase]
     autosquash = true  # See help rebase
+[ghq]
+    root = "~/go/src"
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
