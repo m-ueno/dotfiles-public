@@ -1,0 +1,11 @@
+#!/bin/bash -xeu
+
+# Download ~/peco_linux_amd64.tar.gz
+#
+# cf. https://stackoverflow.com/a/26738019
+
+curl -s https://api.github.com/repos/peco/peco/releases/latest \
+  | grep browser_download_url \
+  | cut -d '"' -f 4 \
+  | grep linux_amd64 \
+  | xargs wget -O ~/peco_linux_amd64.tar.gz
