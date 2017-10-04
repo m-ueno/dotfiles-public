@@ -293,10 +293,26 @@ fi
 
 $(which direnv 2>&1 > /dev/null) && eval "$(direnv hook zsh)"
 
+function exists {
+  whence -w $1 >/dev/null
+}
+
+function peco-src () {
+  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+
+if (exists peco); then
+  zle -N peco-src
+  bindkey '^]' peco-src
+fi
+
 [ -f $DOTFILES/zsh/http_status_codes.zsh ] && source $DOTFILES/zsh/http_status_codes.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f $HOME/.asdf/asdf.sh ] && source $HOME/.asdf/asdf.sh
-[ -f $HOME/.asdf/completions/asdf.bash ] && source $HOME/.asdf/completions/asdf.bash
 
 source $DOTFILES/zsh/zplug-init.zsh
 
