@@ -17,3 +17,5 @@ TAGS
 .envrc
 env/
 ,*
+
+node_modules/
