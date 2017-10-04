@@ -291,6 +291,9 @@ if ! is_screen_or_tmux_running && shell_has_started_interactively; then
     fi
 fi
 
+$(which direnv 2>&1 > /dev/null) && eval "$(direnv hook zsh)"
+
+[ -f $DOTFILES/zsh/http_status_codes.zsh ] && source $DOTFILES/zsh/http_status_codes.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f $HOME/.asdf/asdf.sh ] && source $HOME/.asdf/asdf.sh
 [ -f $HOME/.asdf/completions/asdf.bash ] && source $HOME/.asdf/completions/asdf.bash
