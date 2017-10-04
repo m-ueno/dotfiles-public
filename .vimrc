@@ -43,6 +43,10 @@ Plug 'junegunn/vim-easy-align'
 Plug 'elzr/vim-json'
 Plug 'chrisbra/csv.vim'
 
+Plug 'w0rp/ale'
+let g:ale_lint_on_text_changed = 'never' " linters only when I save files
+let g:ale_lint_on_enter = 0              " don't want linters to run on opening a file
+
 let g:loaded_matchparen = 1
 Plug 'itchyny/vim-parenmatch'
 Plug 'itchyny/vim-cursorword'
