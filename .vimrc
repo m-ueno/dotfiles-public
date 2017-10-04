@@ -219,8 +219,8 @@ let g:syntastic_check_on_wq = 0
 
 let g:syntastic_mode_map = {
             \ "mode": "passive",
-            \ "active_filetypes": [],
-            \ "passive_filetypes": ["ruby", "python"] }
+            \ "active_filetypes": ["ruby"],
+            \ "passive_filetypes": [] }
 
 "" Syntastic customs
 let g:syntastic_enable_signs=1
