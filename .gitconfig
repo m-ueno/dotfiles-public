@@ -21,7 +21,7 @@
     ls = ls-files
     unstage = reset HEAD --
     last = log -1 HEAD
-    fix = !"git add -u && git commit -m 'fix' && git push"
+    fix = "!git diff --name-only | uniq | xargs $EDITOR"
     branch-root = merge-base master HEAD
     rebase-branch = "!git rebase -i `git merge-base master HEAD`"
 [diff]
