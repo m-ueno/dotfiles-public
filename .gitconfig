@@ -36,9 +36,8 @@
 [push]
     default = matching
 [core]
-    excludesfile = /home/masaru/.gitignore
+    excludesfile = ~/.gitignore_global
 [credential]
     helper = cache --timeout=86400
-    excludesfile = $HOME/.gitignore_global
 [rebase]
     autosquash = true  # See help rebase

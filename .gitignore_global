@@ -12,3 +12,8 @@
 tags
 *.pyc
 TAGS
+,/
+.tool-versions
+.envrc
+env/
+,*
