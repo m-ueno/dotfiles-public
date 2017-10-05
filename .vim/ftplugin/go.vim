@@ -1,5 +1,23 @@
 setlocal nolist
 
+" vim-go
+"" syntax-highlighting for Functions, Methods and Structs
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+"" Enable goimports to automatically insert import paths instead of gofmt:
+let g:go_fmt_command = "goimports"
+"" By default vim-go shows errors for the fmt command, to disable it:
+let g:go_fmt_fail_silently = 1
+"" Disable auto fmt on save:
+let g:go_fmt_autosave = 1
+"" Disable opening browser after posting your snippet to play.golang.org:
+let g:go_play_open_browser = 0
+
 nnoremap <silent> <leader>gb :GoBuild<CR>
 nnoremap <silent> <leader>gd :GoDef<CR>
 nnoremap <silent> <leader>gf :GoFmt<CR>
