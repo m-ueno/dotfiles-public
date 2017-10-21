@@ -18,6 +18,8 @@ Plug 'emacscommandline'
 Plug 'kannokanno/previm'
 let g:previm_open_cmd = 'w3m'
 
+Plug 'sheerun/vim-polyglot'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'matchit.zip'
 "Plug 'neocomplcache'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -153,6 +155,10 @@ noremap <C-l> <C-w>l
 noremap <C-p> :bprevious<CR>
 noremap <C-n> :bnext<CR>
 
+" tagsジャンプの時に複数ある時は一覧表示
+nnoremap <C-]> g<C-]>
+nnoremap <C-w><C-]> <C-w>g<C-]>
+
 " Plugin
 noremap <silent> <F3> :call BufferList()<CR>
 "" Unite.vim
@@ -223,7 +229,7 @@ autocmd BufNewFile *.html 0r $HOME/.vim/template/template.html
 "" Syntastic recommended settings
 
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
