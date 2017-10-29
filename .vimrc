@@ -9,10 +9,10 @@ Plug 'altercation/vim-colors-solarized'
 "Plug 'Gist.vim'
 "Plug 'itchyny/calendar.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'ShowMarks7'
-Plug 'The-NERD-Commenter'
-Plug 'buftabs'
-Plug 'emacscommandline'
+Plug 'vim-scripts/ShowMarks7'
+Plug 'vim-scripts/The-NERD-Commenter'
+Plug 'vim-scripts/buftabs'
+Plug 'vim-scripts/emacscommandline'
 "Plug 'fugitive.vim'
 "Plug 'git-cheat'
 Plug 'kannokanno/previm'
@@ -20,10 +20,10 @@ let g:previm_open_cmd = 'w3m'
 
 Plug 'sheerun/vim-polyglot'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'matchit.zip'
+Plug 'vim-scripts/matchit.zip'
 "Plug 'neocomplcache'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'nginx.vim'
+Plug 'vim-scripts/nginx.vim'
 Plug 'ngmy/vim-rubocop'
 "Plug 'scrooloose/syntastic'
 "Plug 'surround.vim'
@@ -37,7 +37,7 @@ Plug 'haya14busa/incsearch.vim'
 "Plug 'kien/ctrlp.vim'
 Plug 'glidenote/memolist.vim'
 Plug 'tell-k/vim-autopep8'
-Plug 'vim-flake8'
+Plug 'vim-scripts/vim-flake8'
 
 Plug 'junegunn/vim-easy-align'
 
@@ -255,24 +255,6 @@ let g:syntastic_ruby_checkers = ['rubocop']
 let g:flake8_show_in_gutter = 1
 let g:flake8_show_in_file = 1
 let g:flake8_ignore="E501,W293"
-" vim-go
-
-"" syntax-highlighting for Functions, Methods and Structs
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-
-"" Enable goimports to automatically insert import paths instead of gofmt:
-let g:go_fmt_command = "goimports"
-"" By default vim-go shows errors for the fmt command, to disable it:
-let g:go_fmt_fail_silently = 1
-"" Disable auto fmt on save:
-let g:go_fmt_autosave = 1
-"" Disable opening browser after posting your snippet to play.golang.org:
-let g:go_play_open_browser = 0
 
 " `K` to view help
 augroup set_kp_help
