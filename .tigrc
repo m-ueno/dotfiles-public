@@ -1,3 +1,11 @@
 # follow jonas/tig/wiki/Bindings
 
 bind status P !git add --patch %(file)
+
+#source ~/go/src/github.com/jonas/tig/contrib/chocolate.theme.tigrc
+#source ~/go/src/github.com/jonas/tig/contrib/vremy.tigrc
+# カラー設定
+# # diff-view で境界が見やすくなるように変更
+color  diff-header       black magenta
+#color  diff-chunk        black   white
+
