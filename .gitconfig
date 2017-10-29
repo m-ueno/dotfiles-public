@@ -27,8 +27,6 @@
 [diff]
     tool = vimdiff
     patience = true
-[url "https://"]
-    insteadOf = git://
 [gist.github.com]
     user = m-ueno
 [github]
