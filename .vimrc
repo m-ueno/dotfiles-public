@@ -75,6 +75,12 @@ map <F6> :NERDTreeToggle<CR>
 Plug 'majutsushi/tagbar'
 map <F7> :TagbarToggle<CR>
 
+" Colorscheme
+Plug 'w0ng/vim-hybrid'
+Plug 'nanotech/jellybeans.vim'
+Plug 'tomasr/molokai'
+let g:molokai_original = 1
+
 call plug#end()
 
 
@@ -297,11 +303,17 @@ nnoremap <Leader>mn  :MemoNew<CR>
 nnoremap <Leader>ml  :MemoList<CR>
 nnoremap <Leader>mg  :MemoGrep<CR>
 
+" colorscheme
+
 if has("mac")
     colorscheme elflord
 elseif has("unix")
     " unix (linux?)
-    colorscheme elflord
+    " colorscheme elflord
+    " colorscheme jellybeans
+    colorscheme hybrid
+    highlight Normal ctermbg=none  " transparent background
+    highlight LineNr ctermfg=DarkGray ctermbg=none
 elseif has("win64")
     " 64bit_windows
 elseif has("win32unix")
