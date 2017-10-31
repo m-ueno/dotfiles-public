@@ -32,9 +32,8 @@ Plug 'ngmy/vim-rubocop'
 "Plug 'unite-colorscheme'
 "Plug 'Shougo/vimfiler'
 "Plug 'Shougo/vimproc.vim'
-"
+
 Plug 'haya14busa/incsearch.vim'
-"Plug 'kien/ctrlp.vim'
 Plug 'glidenote/memolist.vim'
 Plug 'tell-k/vim-autopep8'
 Plug 'vim-scripts/vim-flake8'
@@ -59,6 +58,20 @@ Plug 'vim-scripts/vim-auto-save'
 let g:auto_save = 1
 let g:auto_save_no_updatetime = 200  " do not change the 'updatetime' option
 let g:auto_save_in_insert_mode = 0
+
+Plug 'ctrlpvim/ctrlp.vim'
+nnoremap s <Nop>
+nnoremap sa :<C-u>CtrlP<Space>
+nnoremap sb :<C-u>CtrlPBuffer<CR>
+nnoremap sd :<C-u>CtrlPDir<CR>
+nnoremap sf :<C-u>CtrlP<CR>
+nnoremap sl :<C-u>CtrlPLine<CR>
+nnoremap sm :<C-u>CtrlPMRUFiles<CR>
+nnoremap sq :<C-u>CtrlPQuickfix<CR>
+nnoremap ss :<C-u>CtrlPMixed<CR>
+nnoremap st :<C-u>CtrlPTag<CR>
+let g:ctrlp_map = '<Nop>'
+let g:ctrlp_working_path_mode = 'ra'
 
 if executable('go')
   " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
