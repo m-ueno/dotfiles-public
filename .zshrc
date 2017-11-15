@@ -282,14 +282,16 @@ tmux_attach_or_launch() {
     fi
 }
 
-if ! is_screen_or_tmux_running && shell_has_started_interactively; then
-    if whence tmux >/dev/null 2>/dev/null; then
-      # $(resolve_alias "$cmd")
-      # Fix to show CJK chars on MSYS2
-      # $(resolve_alias "$cmd") -u
-      tmux_attach_or_launch
-    fi
-fi
+start_tmux() {
+  if ! is_screen_or_tmux_running && shell_has_started_interactively; then
+      if whence tmux >/dev/null 2>/dev/null; then
+        # $(resolve_alias "$cmd")
+        # Fix to show CJK chars on MSYS2
+        # $(resolve_alias "$cmd") -u
+        tmux_attach_or_launch
+      fi
+  fi
+}
 
 $(which direnv 2>&1 > /dev/null) && eval "$(direnv hook zsh)"
 
