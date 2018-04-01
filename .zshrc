@@ -53,7 +53,7 @@ if is-at-least 4.3.10; then
     promptinit
     prompt adam2
 fi
-zstyle :compinstall filename '/home/masaru/.zshrc'
+zstyle :compinstall filename "$HOME/.zshrc"
 zstyle ':completion:*' list-colors ''
 # complete even if using sudo
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
@@ -187,6 +187,14 @@ if is-at-least 4.3.10; then
     add-zsh-hook precmd _update_vcs_info_msg
     RPROMPT="%1(v|%F{green}%1v%f|)"
 fi
+
+# https://github.com/zsh-users/zsh/blob/master/Functions/Zle/bracketed-paste-magic
+# Setup:
+autoload -Uz bracketed-paste-magic
+zle -N bracketed-paste bracketed-paste-magic
+# Useful with url-quote-magic if you have http://... on the line and
+# are pasting additional text on the end of the URL.
+zstyle :bracketed-paste-magic paste-init backward-extend-paste
 
 function gittips {
     cat <<EOH
