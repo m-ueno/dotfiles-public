@@ -17,5 +17,6 @@ TAGS
 .envrc
 env/
 ,*
+*.log
 
 node_modules/
