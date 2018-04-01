@@ -25,6 +25,9 @@ Plug 'vim-scripts/matchit.zip'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'vim-scripts/nginx.vim'
 Plug 'ngmy/vim-rubocop'
+Plug 'rust-lang/rust.vim'
+let g:rustfmt_autosave = 1  "enable automatic running of :RustFmt when you save a buffer
+
 "Plug 'scrooloose/syntastic'
 "Plug 'surround.vim'
 "Plug 'quickrun.vim'
